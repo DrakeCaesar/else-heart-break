@@ -1,0 +1,8 @@
+var list = Range(0, 10000)
+
+loop key in list
+    if (Unlock(key) == true)
+        return
+    end
+end
+

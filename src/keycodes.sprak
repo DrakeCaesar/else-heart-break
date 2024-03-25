@@ -1,0 +1,19 @@
+Hotel lobby left 
+~50000
+
+Hotel lobby right
+?
+
+RentingApartmentsKey
+4991
+
+KeyRoom4
+Toggle(45914)
+
+var list = Range(0, 100)
+
+loop key in list
+    if (Unlock(key) == true)
+        return
+    end
+end

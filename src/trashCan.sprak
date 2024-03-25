@@ -1,0 +1,25 @@
+
+# THIS CODE RUNS WHEN AN ITEM IS THROWN INTO THE TRASH
+
+string trashType = GetType()
+
+#Say("Type: " + trashType)
+
+if trashType == "floppy" or trashType == "key"
+	MoveToRoom("MonadsApartment")
+else
+	Delete()
+end
+
+
+
+# Connect to PowerTap
+number powerTap = Connect("MonadsApartment")
+
+# What's my name?
+string name = GetName()
+
+# Send name to PowerTap
+powerTap.Tap(name)
+
+Slurp()
