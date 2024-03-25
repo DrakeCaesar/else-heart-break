@@ -18,71 +18,71 @@ Print("Entering office... Hold on...")
 #Returns the new selection index.
 var HandleListInput_data = [false, false]
 var HandleListInput(var options, var selection)
- if(IsKeyPressed("up"))
-  if(HandleListInput_data[0] == false)
-   selection = selection - 1
-   if (selection < 0)
-    selection = Count(options) - 1
-   end
+  if(IsKeyPressed("up"))
+    if(HandleListInput_data[0] == false)
+      selection = selection - 1
+      if (selection < 0)
+        selection = Count(options) - 1
+      end
+    end
+    HandleListInput_data[0] = true
+  else
+    HandleListInput_data[0] = false
   end
-  HandleListInput_data[0] = true
- else
-  HandleListInput_data[0] = false
- end
- if(IsKeyPressed("down"))
-  if(HandleListInput_data[1] == false)
-   selection = selection + 1
-   if(selection >= Count(options))
-    selection = 0
-   end
-   HandleListInput_data[1] = true
+  if(IsKeyPressed("down"))
+    if(HandleListInput_data[1] == false)
+      selection = selection + 1
+      if(selection >= Count(options))
+        selection = 0
+      end
+      HandleListInput_data[1] = true
+    end
+  else
+    HandleListInput_data[1] = false
   end
- else
-  HandleListInput_data[1] = false
- end
- 
- return selection
+  
+  return selection
 end
 
 
 var ToLowercase(var text)
- var res = ""
- loop c in text
-  if IsUppercase(c)
-   res += IntToChar(CharToInt(c) + 32)
-  else
-   res += c
+  var res = ""
+  loop c in text
+    if IsUppercase(c)
+      res += IntToChar(CharToInt(c) + 32)
+    else
+      res += c
+    end
   end
- end
- return res
+  return res
 end
 
 var ToUppercase(var text)
- var res = ""
- loop c in text
-  if IsLowercase(c)
-   res += IntToChar(CharToInt(c) - 32)
-  else
-   res += c
+  var res = ""
+  loop c in text
+    if IsLowercase(c)
+      res += IntToChar(CharToInt(c) - 32)
+    else
+      res += c
+    end
   end
- end
- return res
+  return res
 end
 
 bool IsLowercase(var c)
- return CharToInt(c) >= 0 && CharToInt(c) <= 25
+  return CharToInt(c) >= 0 && CharToInt(c) <= 25
 end
 
 bool IsUppercase(var c)
- return CharToInt(c) >= -32 && CharToInt(c) <= -7
+  return CharToInt(c) >= -32 && CharToInt(c) <= -7
 end
 
 array CopyArray(array a)
- array res = []
- loop i in a
-  res[Count(res)] = i
- end
- return res
+  array res = []
+  loop i in a
+    res[Count(res)] = i
+  end
+  return res
 end
 
 
@@ -98,20 +98,20 @@ time_descs[time_pm_index] = "Time: PM"
 
 #Only call this when the game starts, to avoid strange side-cases where it would switch state mid-session
 var GetTimeOfDay()
- var hour = GetHour()
- if (hour < 6 || hour > 20)
-  return time_night_index
- else if (hour < 14)
-  return time_am_index
- end
- return time_pm_index
+  var hour = GetHour()
+  if (hour < 6 || hour > 20)
+    return time_night_index
+  else if (hour < 14)
+    return time_am_index
+  end
+  return time_pm_index
 end
 
 var GetTimeDesc()
- if (time_index < 0 || time_index >= Count(time_descs))
-  return ""
- end
- return time_descs[time_index]
+  if (time_index < 0 || time_index >= Count(time_descs))
+    return ""
+  end
+  return time_descs[time_index]
 end
 
 #Scene indices
@@ -164,33 +164,33 @@ var lastT = Time()
 
 #Options
 void AddOption(var option_list, string option_text, number scene_destination_index, bool reset_selection)
- var option = [ToLowercase(option_text), ToUppercase(option_text), scene_destination_index, reset_selection]
- option_list[Count(option_list)] = option
+  var option = [ToLowercase(option_text), ToUppercase(option_text), scene_destination_index, reset_selection]
+  option_list[Count(option_list)] = option
 end
 
 array options_main
 AddOption(options_main, "Briefing (aka what am I doing?)", scene_briefing_index, true)
 AddOption(options_main, "Check evidence", scene_evidence_index, true)
 if(time_index == time_night_index)
- AddOption(options_main, "Investigate crime scene (night)", scene_crime_n_index, true)
+  AddOption(options_main, "Investigate crime scene (night)", scene_crime_n_index, true)
 else if(time_index == time_am_index)
- AddOption(options_main, "Investigate crime scene (AM)", scene_crime_am_index, true)
+  AddOption(options_main, "Investigate crime scene (AM)", scene_crime_am_index, true)
 else
- AddOption(options_main, "Investigate crime scene (PM)", scene_crime_pm_index, true)
+  AddOption(options_main, "Investigate crime scene (PM)", scene_crime_pm_index, true)
 end
 if(time_index == time_night_index)
- AddOption(options_main, "Investigate restaurant (night)", scene_restaurant_n_index, true)
+  AddOption(options_main, "Investigate restaurant (night)", scene_restaurant_n_index, true)
 else if(time_index == time_am_index)
- AddOption(options_main, "Investigate restaurant (AM)", scene_restaurant_am_index, true)
+  AddOption(options_main, "Investigate restaurant (AM)", scene_restaurant_am_index, true)
 else
- AddOption(options_main, "Investigate restaurant (PM)", scene_restaurant_pm_index, true)
+  AddOption(options_main, "Investigate restaurant (PM)", scene_restaurant_pm_index, true)
 end
 if(time_index == time_night_index)
- AddOption(options_main, "Go to court!", scene_court_n_index, true)
+  AddOption(options_main, "Go to court!", scene_court_n_index, true)
 else if(time_index == time_am_index)
- AddOption(options_main, "Go to court!", scene_court_am_index, true)
+  AddOption(options_main, "Go to court!", scene_court_am_index, true)
 else
- AddOption(options_main, "Go to court!", scene_court_pm_index, true)
+  AddOption(options_main, "Go to court!", scene_court_pm_index, true)
 end
 
 array options_evidence
@@ -366,159 +366,159 @@ scenes[scene_restaurant_pm_fugu_index] = [options_restaurant_pm_fugu, desc_resta
 scenes[scene_restaurant_pm_company_index] = [options_restaurant_pm_company, desc_restaurant_pm_company]
 
 var GetSceneOptions()
- var scene = scenes[scene_index]
- return scene[0]
+  var scene = scenes[scene_index]
+  return scene[0]
 end
 
 array GetSceneDesc()
- if(scene_index == scene_court_pm_proofs_index)
-  return GetProofs()
- else if(scene_index == scene_court_pm_verdict_index)
-  return GetVerdict()
- else
-  var scene = scenes[scene_index]
-  return scene[1]
- end
+  if(scene_index == scene_court_pm_proofs_index)
+    return GetProofs()
+  else if(scene_index == scene_court_pm_verdict_index)
+    return GetVerdict()
+  else
+    var scene = scenes[scene_index]
+    return scene[1]
+  end
 end
 
 string GetOptionText(var option, bool selected)
- if(selected)
-  return option[1]
- else
-  return option[0]
- end
+  if(selected)
+    return option[1]
+  else
+    return option[0]
+  end
 end
 
 number GetOptionDestination(var option)
- return option[2]
+  return option[2]
 end
 
 bool GetOptionResetChoice(var option)
- if (Count(option) >= 4)
-  return option[3]
- else
-  return true
- end
+  if (Count(option) >= 4)
+    return option[3]
+  else
+    return true
+  end
 end
 
 void MakeChoice()
- if (option_index < 0 || option_index >= Count(GetSceneOptions()))
-  return
- end
- 
- # Store what we say if we're in court.
- if(scene_index >= scene_court_pm_killer_index && scene_index <= scene_court_pm_motive_index)
-  proof[scene_index] = option_index
- end
- 
- var options = GetSceneOptions()
- var option = options[option_index]
- scene_index = GetOptionDestination(option)
- 
- if(GetOptionResetChoice(option))
-  option_index = 0
- end
+  if (option_index < 0 || option_index >= Count(GetSceneOptions()))
+    return
+  end
+  
+  # Store what we say if we're in court.
+  if(scene_index >= scene_court_pm_killer_index && scene_index <= scene_court_pm_motive_index)
+    proof[scene_index] = option_index
+  end
+  
+  var options = GetSceneOptions()
+  var option = options[option_index]
+  scene_index = GetOptionDestination(option)
+  
+  if(GetOptionResetChoice(option))
+    option_index = 0
+  end
 end
 
 array GetProofs()
- var scene = scenes[scene_court_pm_proofs_index]
- array res = CopyArray(scene[1])
- res[Count(res)] = "The killer is " + GetOptionText(options_court_pm_killer[proof[scene_court_pm_killer_index]], false)
- res[Count(res)] = "The cause of death was " + GetOptionText(options_court_pm_cause[proof[scene_court_pm_cause_index]], false)
- res[Count(res)] = "The motive was " + GetOptionText(options_court_pm_motive[proof[scene_court_pm_motive_index]], false)
- return res
+  var scene = scenes[scene_court_pm_proofs_index]
+  array res = CopyArray(scene[1])
+  res[Count(res)] = "The killer is " + GetOptionText(options_court_pm_killer[proof[scene_court_pm_killer_index]], false)
+  res[Count(res)] = "The cause of death was " + GetOptionText(options_court_pm_cause[proof[scene_court_pm_cause_index]], false)
+  res[Count(res)] = "The motive was " + GetOptionText(options_court_pm_motive[proof[scene_court_pm_motive_index]], false)
+  return res
 end
 
 array GetVerdict()
- var scene = scenes[scene_court_pm_verdict_index]
- array res = CopyArray(scene[1])
- if(proof[scene_court_pm_killer_index] == 0 && proof[scene_court_pm_cause_index] == 4 && proof[scene_court_pm_motive_index] == 1)
-  res[Count(res)] = GetSuccessText()
- else
-  res[Count(res)] = GetFailText()
- end
- return res
+  var scene = scenes[scene_court_pm_verdict_index]
+  array res = CopyArray(scene[1])
+  if(proof[scene_court_pm_killer_index] == 0 && proof[scene_court_pm_cause_index] == 4 && proof[scene_court_pm_motive_index] == 1)
+    res[Count(res)] = GetSuccessText()
+  else
+    res[Count(res)] = GetFailText()
+  end
+  return res
 end
 
 string GetSuccessText()
- return "GUILTY! HE'S GUILTY! Damn fine work!"
+  return "GUILTY! HE'S GUILTY! Damn fine work!"
 end
 
 string GetFailText()
- return "NOT GUILTY! That evidence doesn't add up with that suspect..."
+  return "NOT GUILTY! That evidence doesn't add up with that suspect..."
 end
 
 bool OnInput(number dt)
- bool res = false
- var lastIndex = option_index
- if(IsKeyPressed("space"))
-  if(was_pressed_space == false)
-   MakeChoice()
-   res = true
+  bool res = false
+  var lastIndex = option_index
+  if(IsKeyPressed("space"))
+    if(was_pressed_space == false)
+      MakeChoice()
+      res = true
+    end
+    was_pressed_space = true
+  else
+    was_pressed_space = false
   end
-  was_pressed_space = true
- else
-  was_pressed_space = false
- end
- #   if(IsKeyPressed("left"))
- #       if(was_pressed_left == false)
- #           SetTimeOfDay(-1)
- #           res = true
- #       end
- #       was_pressed_left = true
- #   else
- #       was_pressed_left = false
- #   end
- #   if(IsKeyPressed("right"))
- #       if(was_pressed_right == false)
- #           SetTimeOfDay(1)
- #           res = true
- #       end
- #       was_pressed_right = true
- #   else
- #       was_pressed_right = false
- #   end
- if(res == true)
-  return true
- end
- option_index = HandleListInput(GetSceneOptions(), option_index)
- return lastIndex != option_index
+  #   if(IsKeyPressed("left"))
+  #       if(was_pressed_left == false)
+  #           SetTimeOfDay(-1)
+  #           res = true
+  #       end
+  #       was_pressed_left = true
+  #   else
+  #       was_pressed_left = false
+  #   end
+  #   if(IsKeyPressed("right"))
+  #       if(was_pressed_right == false)
+  #           SetTimeOfDay(1)
+  #           res = true
+  #       end
+  #       was_pressed_right = true
+  #   else
+  #       was_pressed_right = false
+  #   end
+  if(res == true)
+    return true
+  end
+  option_index = HandleListInput(GetSceneOptions(), option_index)
+  return lastIndex != option_index
 end
 
 void DrawTime()
- Print("                        " + GetTimeDesc())
- Print("")
- Print("")
- Print("")
+  Print("                        " + GetTimeDesc())
+  Print("")
+  Print("")
+  Print("")
 end
 
 void DrawSceneDesc()
- array desc = GetSceneDesc()
- loop line in desc
-  Print(line)
- end
- Print("")
- Print("")
+  array desc = GetSceneDesc()
+  loop line in desc
+    Print(line)
+  end
+  Print("")
+  Print("")
 end
 
 void DrawOptions(var options)
- number index = 0
- loop option in options
-  Print(GetOptionText(option, index == option_index))
-  index++
- end
+  number index = 0
+  loop option in options
+    Print(GetOptionText(option, index == option_index))
+    index++
+  end
 end
 
 bool modified = true
 loop
- number dt = Time() - lastT
- lastT = Time()
- modified = OnInput(dt) || modified
- if modified
-  modified = false
-  ClearText()
-  DrawTime()
-  DrawSceneDesc()
-  DrawOptions(GetSceneOptions())
- end
+  number dt = Time() - lastT
+  lastT = Time()
+  modified = OnInput(dt) || modified
+  if modified
+    modified = false
+    ClearText()
+    DrawTime()
+    DrawSceneDesc()
+    DrawOptions(GetSceneOptions())
+  end
 end
