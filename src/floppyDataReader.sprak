@@ -6,15 +6,15 @@ Print("==================")
 Sleep(1)
 
 if HasFloppy()
-    Print("")
-    Print("Data on floppy:")
-    Print("")
-    var allData = LoadData()
-    loop data in allData
-        Print(data)
-        Sleep(0.75)
-    end
-    Print("--------------")
+  Print("")
+  Print("Data on floppy:")
+  Print("")
+  var allData = LoadData()
+  loop data in allData
+    Print(data)
+    Sleep(0.75)
+  end
+  Print("--------------")
 else
-    Print("Please insert floppy...")
+  Print("Please insert floppy...")
 end
