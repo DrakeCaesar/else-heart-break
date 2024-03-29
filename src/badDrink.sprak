@@ -1,0 +1,15 @@
+var name = GetUser()
+if (name == "Sebastian")
+  var sink = Connect("FelixApartment_Poor_WaterTap_Poor_WaterTap_1")
+  var computer = Connect("FelixHomeComputer")
+  var status = 0
+
+    Charisma(10000)
+    Smelliness(-10000)
+    Sleepiness(-10000)
+    Drunkenness(-10000)
+    Corruption(10000)
+    Speed(10000)
+    sink.SetLiquidAmount(99999)
+    computer.Sleep(1)
+end

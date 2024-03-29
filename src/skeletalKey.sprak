@@ -1,8 +1,10 @@
-var list = Range(0, 10000)
+var list = Range(0, 10)
+
 
 loop key in list
-  if (Unlock(key) == true)
+  var test = Unlock(key)
+  Say(test)
+  if (test == true)
     return
   end
 end
-

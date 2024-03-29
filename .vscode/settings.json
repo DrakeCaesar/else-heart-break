@@ -1,5 +1,7 @@
 {
   "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "editor.formatOnSave": true,
   "editor.tokenColorCustomizations": {
     "keywords": "#f75ff7",
     "types": "#ffff00",

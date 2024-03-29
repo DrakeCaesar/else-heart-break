@@ -1,19 +1,7 @@
-ClearText()
+Color(0,0,0)
 
-var things = GetThingsInRoom("MonadsApartment")
+number midx = 128
+number midy = 64
+number t = 0
 
-var count = 0
-
-loop thing in things
-  count++
-  Print(thing)
-  if count == 10
-    Input(" Press enter to continue... ")
-    ClearText()
-    count = 0
-  end
-end
-
-Connect("MonadsApartment_Internet_PoleComputer_1")
-Connect("MonadsApartment_Home_Computer")
-Slurp()
+DisplayGraphics()

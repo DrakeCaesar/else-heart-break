@@ -1,6 +1,12 @@
-loop
-  ClearText()
-  Unlock("Factory_Corridor_DoorToServerRoom")
-  Sleep(3)
-end
+# coke...
+
+Charisma(1000)
+Smelliness(-1000)
+Sleepiness(-1000)
+Drunkenness(-1000)
+Corruption(-1000)
+
+Drink(-100)
+
+
 
