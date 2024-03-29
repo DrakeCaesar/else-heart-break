@@ -1,0 +1,19 @@
+
+loop
+  ClearText()
+  string target = "Monads_Apartment"
+  
+  Print("Please wait...")
+  var path = FindPath(GetUser(), target)
+  
+  Print("==========================")
+  Print("Suggested route:")
+  number i = 1
+  loop room in path
+    Print(i + ". " + room)
+    i++
+  end
+  Print("==========================")
+  Input("Press enter to continue...")
+end
+

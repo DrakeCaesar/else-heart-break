@@ -1,0 +1,21 @@
+Connect("Plaza_CurcuitLocker_1")
+Connect("Plaza_CurcuitLocker_2")
+Connect("Plaza_CurcuitLocker_3")
+Connect("Plaza_CurcuitLocker_4")
+
+Main()
+
+void Main()
+  # Slurp()
+  ClearText()
+  var memories = GetMemories()
+  loop memory in memories
+    Print(memory)
+  end
+end
+
+# loop
+#   SaveMemory("Sebastian", 100000)
+#   Sleep(5)
+# end
+

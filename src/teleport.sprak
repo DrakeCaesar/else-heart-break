@@ -1,0 +1,5 @@
+Print(Position())
+
+loop y in Range(0, -100)
+  Teleport(0, y)
+end

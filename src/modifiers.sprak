@@ -1,0 +1,6 @@
+loop
+  ClearText()
+  Unlock("Factory_Corridor_DoorToServerRoom")
+  Sleep(3)
+end
+
