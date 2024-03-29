@@ -1,0 +1,38 @@
+{
+  "files.autoSave": "afterDelay",
+  "editor.tokenColorCustomizations": {
+    "keywords": "#f75ff7",
+    "types": "#ffff00",
+    "strings": "#178717",
+    "variables": "#FFA500",
+    // "comments": "#FF0000",
+    // "numbers": "#fc2a2a",
+    "textMateRules": [
+      {
+        "scope": "constant.language",
+        "settings": {
+          "foreground": "#d03781"
+        }
+      },
+      {
+        "scope": "support.function.sprak",
+        "settings": {
+          "foreground": "#00aaff",
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "entity.name.function",
+        "settings": {
+          "foreground": "#dddddd"
+        }
+      },
+      {
+        "scope": "keyword.operator.sprak",
+        "settings": {
+          "foreground": "#dddddd"
+        }
+      }
+    ]
+  }
+}
