@@ -1,0 +1,42 @@
+var mf = Connect("MainFrame")
+var sebName = "Sebastian"
+
+ClearText()
+Print("Test")
+
+string ProgresBar(var progress, var total, var width)
+  var percentage = Int((progress / total) * 100)
+  var segments = Int((progress / total) * width)
+  var bar = ""
+  loop i from 0 to segments
+    bar = bar + "#"
+  end
+  return bar
+end
+
+var rooms = mf.GetAllRooms()
+var rm = Count(rooms)
+loop ri from 0 to rm - 1
+  if (rm == 0)
+    break
+  end
+  var things = mf.GetThingsInRoom(rooms[ri])
+  var tm = Count(things)
+  loop ti from 0 to tm - 1
+    if (tm == 0)
+      break
+    end
+    var type = mf.GetTypeOfThing(things[ti])
+    if type == "door"
+      Unlock(things[ti])
+      
+      Print("r: " + ri + "/" + rm + " t: " + ti + "/" + tm)
+      
+      var p1 = ProgresBar(ri, rm, 62)
+      var p2 = ProgresBar(ti, tm, 62)
+      Print(p1)
+      Print(p2)
+    end
+  end
+end
+

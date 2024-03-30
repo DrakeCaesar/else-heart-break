@@ -39,6 +39,8 @@ array CopyArray(array a)
   return res
 end
 
+
+
 array findSubstrings(string target, array things)
   array resultList = []
   
@@ -55,10 +57,14 @@ end
 
 ClearText()
 
+var term = "inventory"
 Print("Searching for: " + term)
 var filteredRooms = findSubstrings(term, rooms)
 
+
 loop room in filteredRooms
+  var type = mf.GetTypeOfThing(room)
+  Print("Type: " + type);
   Print(room)
 end
 Print("Done printing rooms")
@@ -96,10 +102,9 @@ void Progress(array arr)
   end
   Print("")
   Print("")
-  
 end
 
-# Progress(rooms)
+Progress(rooms)
 
 
 # Info()
@@ -140,3 +145,7 @@ end
 # var champion = LoadMemory("champion")
 
 # Print(champion)
+# end
+# end
+# return resultList
+# end

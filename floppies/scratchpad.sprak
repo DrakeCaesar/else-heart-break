@@ -116,3 +116,18 @@ heart.Connect("mainFrame")
 var anal = Connect("Internet_Heart_Analyzer")
 anal.Connect("mainFrame")
 Slurp()
+
+loop
+  FastForward()
+  QuickBoost()
+  Trippy()
+  Sleep(1)
+end
+
+
+var name = Name()
+if (name == "Sebastian")
+  Goto("Monad_inventory")
+else
+  Goto("YvonneToilet_DoorToBar")
+end

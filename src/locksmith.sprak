@@ -4,6 +4,7 @@ var lastRoom = ""
 
 ClearText()
 var memories = GetMemories()
+Print("Memories:")
 loop memory in memories
   Print("Memory: " + memory)
 end
@@ -47,18 +48,3 @@ loop
   Sleep(1)
 end
 
-
-loop
-  FastForward()
-  QuickBoost()
-  Trippy()
-  Sleep(1)
-end
-
-
-var name = Name()
-if (name == "Sebastian")
-  Goto("Monad_inventory")
-else
-  Goto("YvonneToilet_DoorToBar")
-end
