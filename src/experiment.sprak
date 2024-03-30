@@ -1,0 +1,13 @@
+var mainframe = Connect("MainFrame")
+mainframe.Connect(Name())
+ClearText()
+
+var type = mainframe.GetTypeOfThing("Testing_Snusdosa_Snusdosa_1")
+
+Print(type)
+
+var things = mainframe.GetThingsOfType(type)
+
+loop thing in things
+  Print(thing)
+end

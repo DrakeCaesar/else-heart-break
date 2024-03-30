@@ -17,4 +17,10 @@ var pos = mainframe.GetPosition("Heart")
 Print("Heart is at: " + pos)
 # -190, 3
 
+loop i from -255 to 255
+  loop j from -255 to 255
+    SetWorldPosition("Internet", i, j)
+  end
+end
+
 SetWorldPosition("Internet", -190, 3)

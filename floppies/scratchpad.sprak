@@ -1,0 +1,118 @@
+
+var server = Connect("Wellspringer")
+
+
+var name = GetUser()
+if(name == "Sebastian")
+  Goto("Internet_Door_13")
+else
+  Goto("RentingApartmentsLobby_DoubleDoor1")
+end
+
+
+# var things = users
+
+# var c = 0
+# loop thing in things
+#   Print(thing)
+#   c++
+#   if c > 28
+#      Input("-------------------------")
+#     c = 0
+#   end
+# end
+
+# Slurp()
+
+# var monad = mf.GetPosition("Monad")
+# Print(monad)
+
+# var location = ""
+# var posX = 0
+# var posY = 0
+
+
+# var max = Count(monad)
+# loop i from 6 to max
+#   if (monad[i] == ",")
+#     break
+#   end
+#   location += monad[i]
+# end
+
+
+# bool x = false
+# bool y = false
+# string xStr = ""
+# string yStr = ""
+
+# var min = 6 + Count(location)
+# loop i from min to 1000
+#   if (x)
+#     xStr += monad[i]
+#   end
+#   if (y)
+#     yStr += monad[i]
+#   end
+
+#   if (monad[i] == "(")
+#     x = true
+#   end
+#   if (monad[i+1] == ",")
+#     x = false
+#   end
+#   if (monad[i] == "," && xStr != "")
+#     x = false
+#     y = true
+#   end
+#   if (monad[i+1] == ")")
+#     y = false
+#     break
+#   end
+# end
+
+# Print("X: " + xStr)
+# Print("Y: " + yStr)
+
+
+# PrintS(location)
+
+# Slurp()
+
+# var name = Name()
+# loop
+#   ZapPerson("Monad")
+#   Sleep(1)
+#   Print(name)
+# end
+
+
+# SetWorldPosition("PixiesApartment", 24, 21)
+Position()
+
+loop
+  ClearText()
+  Info()
+  Sleep(1)
+end
+
+SetMhz(500)
+SetMaxTime(-2)
+EnableAPI("internet")
+EnableAPI("memory")
+EnableAPI("floppy")
+EnableAPI("door")
+EnableAPI("arcade")
+
+
+var mems = GetMemories()
+Print(mems)
+loop m in mems
+  Print(m)
+end
+
+var heart = Connect("Heart")
+heart.Connect("mainFrame")
+var anal = Connect("Internet_Heart_Analyzer")
+anal.Connect("mainFrame")
+Slurp()

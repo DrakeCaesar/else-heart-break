@@ -10,7 +10,7 @@ RentingApartmentsKey
 KeyRoom4
 Toggle(45914)
 
-var list = Range(0, 100)
+var list = Range(0, 1000000)
 
 loop key in list
   if (Unlock(key) == true)

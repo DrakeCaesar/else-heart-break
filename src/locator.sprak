@@ -1,0 +1,126 @@
+var mainframe = Connect("MainFrame")
+mainframe.Connect(Name())
+var rooms = mainframe.GetAllRooms()
+var users = mainframe.GetPeople()
+
+var ToLowercase(var text)
+  var res = ""
+  loop c in text
+    if IsUppercase(c)
+      res += IntToChar(CharToInt(c) + 32)
+    else
+      res += c
+    end
+  end
+  return res
+end
+var ToUppercase(var text)
+  var res = ""
+  loop c in text
+    if IsLowercase(c)
+      res += IntToChar(CharToInt(c) - 32)
+    else
+      res += c
+    end
+  end
+  return res
+end
+bool IsLowercase(var c)
+  return CharToInt(c) >= 0 && CharToInt(c) <= 25
+end
+bool IsUppercase(var c)
+  return CharToInt(c) >= -32 && CharToInt(c) <= -7
+end
+array CopyArray(array a)
+  array res = []
+  loop i in a
+    res[Count(res)] = i
+  end
+  return res
+end
+
+array findSubstring(string name)
+  array roomList = []
+  
+  loop room in rooms
+    var lowerRoomName = ToLowercase(room)
+    var lowerName = ToLowercase(name)
+    var nameLength = Count(lowerName)
+    if (Count(lowerRoomName) >= nameLength)
+      loop i from 0 to Count(lowerRoomName) - nameLength
+        var match = true
+        loop j from 0 to nameLength - 1
+          if (lowerRoomName[i + j] != lowerName[j])
+            match = false
+            break
+          end
+        end
+        if (match)
+          roomList[Count(roomList)] = room
+          break
+        end
+      end
+    end
+  end
+  return roomList
+end
+ClearText()
+
+var entity = mainframe.GetPosition("Pixie")
+
+Print(entity)
+
+# var location = ""
+# var posX = 0
+# var posY = 0
+
+
+# var max = Count(entity)
+# loop i from 6 to max
+#   if (entity[i] == ",")
+#     break
+#   end
+#   location += entity[i]
+# end
+
+
+# bool x = false
+# bool y = false
+# string xStr = ""
+# string yStr = ""
+
+# var min = 6 + Count(location)
+# loop i from min to 1000
+#   if (x)
+#     xStr += entity[i]
+#   end
+#   if (y)
+#     yStr += entity[i]
+#   end
+
+#   if (entity[i] == "(")
+#     x = true
+#   end
+#   if (entity[i+1] == ",")
+#     x = false
+#   end
+#   if (entity[i] == "," && xStr != "")
+#     x = false
+#     y = true
+#   end
+#   if (entity[i+1] == ")")
+#     y = false
+#     break
+#   end
+# end
+
+# Say("Location: " + location)
+# Sleep(1)
+# Say("X: " + xStr)
+# Sleep(1)
+
+# Say("Y: " + yStr)
+# Sleep(1)
+
+# Print(location)
+

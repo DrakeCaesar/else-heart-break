@@ -2,14 +2,20 @@
 THE BEGINNER'S GUIDE TO THE MODIFIER
 ===================================
 
-*** Chapter 11: Comments ***
+*** Chapter 5: Autocomplete ***
 
-A comment in the code is ignored
-by the compiler. You can create
-a comment by typing the # sign.
+The section at the lower part of your
+modifier ("help area") has a list of 
+functions available to you when programming.
 
-Any text on the line to the right
-of the # sign will be ignored.
+Start writing the name of a function
+to limit the number of options and 
+find it in the list of suggestions.
 
-Be helpful to your future self
-and others - comment your code!
+If you press the TAB key, the highlighted
+option will be inserted into the code
+with a starting parenthesis: (
+
+When entering arguments to a function
+the help area will show documentation
+for each argument.

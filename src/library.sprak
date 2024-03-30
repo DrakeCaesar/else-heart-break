@@ -1,7 +1,7 @@
-var mainframe = Connect("MainFrame")
-
-var rooms = mainframe.GetAllRooms()
-var users = mainframe.GetPeople()
+var mf = Connect("MainFrame")
+var substr = Connect("Ministry_ChamberOfNumbers_LargeRecorder_LargeRecorder_4")
+var rooms = mf.GetAllRooms()
+var users = mf.GetPeople()
 
 var ToLowercase(var text)
   var res = ""
@@ -39,52 +39,97 @@ array CopyArray(array a)
   return res
 end
 
-array findRoom(string name)
-  array roomList = []
+array findSubstrings(string target, array things)
+  array resultList = []
   
-  loop room in rooms
-    var lowerRoomName = ToLowercase(room)
-    var lowerName = ToLowercase(name)
-    var nameLength = Count(lowerName)
-    
-    # Print(room)
-    # Print("Name lowerName: " + lowerName)
-    
-    if (Count(lowerRoomName) >= nameLength)
-      loop i from 0 to Count(lowerRoomName) - nameLength
-        var match = true
-        loop j from 0 to nameLength - 1
-          if (lowerRoomName[i + j] != lowerName[j])
-            match = false
-            break
-          end
-        end
-        if (match)
-          roomList[Count(roomList)] = room
-          Print("Match: " + room)
-          break
-        end
-      end
+  loop thing in things
+    var lowerTarget = ToLowercase(target)
+    var lowerThing = ToLowercase(thing)
+    if (substr.StringContains(lowerThing, lowerTarget))
+      resultList[Count(resultList)] = thing
+      Print("Match: " + thing)
     end
   end
-  return roomList
+  return resultList
 end
+
 ClearText()
-Print("Printing rooms:")
-var filteredRooms = findRoom("Lodge")
-loop room in filteredRooms
-  Print(room)
+
+# Print("Searching for: " + term)
+# var filteredRooms = findSubstrings(term, rooms)
+
+# loop room in filteredRooms
+#   Print(room)
+# end
+# Print("Done printing rooms")
+
+# Print("Printing inventory")
+
+# Connect("Monad")
+# Slurp()
+
+# array inv = mf.GetThingsInRoom(term)
+# loop thing in inv
+#   if substr.StringContains(thing, "Teleport")
+#     Print(thing)
+#   end
+# end
+# Print("Done printing inventory")
+
+# var pos = mf.GetRoom("Sebastian")
+# Print(pos)
+
+# var type = mf.GetThingsOfType("api")
+# Slurp()
+
+void Progress(array arr)
+  var count = Count(arr)
+  var width = Width()
+  
+  loop i from 0 to count
+    ClearText()
+    var percentage = Int((i / count) * 100)
+    Print("Progress: " + percentage + "%")
+    Print(Width())
+  end
 end
-Print("Done printing rooms")
 
-var things = users
+Progress(rooms)
 
-var c = 0
+
+# Info()
+
+# string term = "api"
+# Print("Searching for " + term)
+# loop user in users
+#   var userContents = mf.GetThingsInRoom(user)
+#   loop thing in userContents
+#     if substr.StringContains(thing, term)
+#       Print(user + ": " + thing)
+#     end
+#   end
+# end
+# loop room in rooms
+#   var roomName = room
+#   var roomContents = mf.GetThingsInRoom(roomName)
+#    Print(roomName)
+#   loop thing in roomContents
+#     if substr.StringContains(thing, term)
+#       Print(roomName + ": " + thing)
+#     end
+#   end
+# end
+# Print("Done searching for " + term)\
+
+var sebName = "Sebastian"
+
+var sebRoom = mf.GetRoom(sebName)
+
+var things = mf.GetThingsInRoom(sebRoom)
+
 loop thing in things
-  Print(thing)
-  c++
-  if c > 10
-    Input("press any key to continue")
-    c = 0
+  var type = mf.GetTypeOfThing(thing)
+  if type == "door"
+    Print("Thing" + thing + " is " + type)
   end
 end

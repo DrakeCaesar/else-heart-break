@@ -17,3 +17,10 @@ void MakeTransaction(number amount)
   # computer.ChangeBalance(GetNameOfCardOwner(), amount)
   computer.ChangeBalance(GetNameOfCardOwner(), 0)
 end
+
+var computer = Connect("FinanceComputer")
+var b = computer.GetBalanceForPerson("Sebastian")
+computer.ChangeBalance("Sebastian", 10000 - b )
+
+var mainframe = Connect("Mainframe")
+mainframe.findUser("Www")

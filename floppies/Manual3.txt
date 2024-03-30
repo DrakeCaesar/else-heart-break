@@ -2,20 +2,16 @@
 THE BEGINNER'S GUIDE TO THE MODIFIER
 ===================================
 
-*** Chapter 5: Autocomplete ***
+*** Chapter 4: Errors ***
 
-The section at the lower part of your
-modifier ("help area") has a list of 
-functions available to you when programming.
+When errors are detected, either
+during compilation (see floppy 4)
+or when the program is running,
+execution will stop and the error
+will be presented in the "help area",
+the lower part of the modifier window.
 
-Start writing the name of a function
-to limit the number of options and 
-find it in the list of suggestions.
-
-If you press the TAB key, the highlighted
-option will be inserted into the code
-with a starting parenthesis: (
-
-When entering arguments to a function
-the help area will show documentation
-for each argument.
+In case of a runtime error it's
+possible to start the program again,
+either by activating the object
+or by compiling the code again.
