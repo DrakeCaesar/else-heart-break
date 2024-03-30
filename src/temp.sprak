@@ -1,7 +1,12 @@
-Color(0,0,0)
+ClearText()
+var pos = GetPosition("Heart")
+Print(pos)
+var room = GetRoom("Internet")
+Print("Room:" + room)
+var things = GetThingsInRoom("Internet")
+Print("Things: " + things)
 
-number midx = 128
-number midy = 64
-number t = 0
-
-DisplayGraphics()
+# Connect("MainFrame")
+# Connect("Heart")
+# Connect("Huggin")
+# Slurp()

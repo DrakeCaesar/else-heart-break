@@ -1,0 +1,76 @@
+var mainframe = Connect("MainFrame")
+
+var rooms = GetAllRooms()
+var users = GetPeople()
+
+var ToLowercase(var text)
+  var res = ""
+  loop c in text
+    if IsUppercase(c)
+      res += IntToChar(CharToInt(c) + 32)
+    else
+      res += c
+    end
+  end
+  return res
+end
+var ToUppercase(var text)
+  var res = ""
+  loop c in text
+    if IsLowercase(c)
+      res += IntToChar(CharToInt(c) - 32)
+    else
+      res += c
+    end
+  end
+  return res
+end
+bool IsLowercase(var c)
+  return CharToInt(c) >= 0 && CharToInt(c) <= 25
+end
+bool IsUppercase(var c)
+  return CharToInt(c) >= -32 && CharToInt(c) <= -7
+end
+array CopyArray(array a)
+  array res = []
+  loop i in a
+    res[Count(res)] = i
+  end
+  return res
+end
+
+array findRoom(string name)
+  array roomList = []
+  
+  loop room in rooms
+    var lowerRoomName = ToLowercase(room)
+    var lowerName = ToLowercase(name)
+    var nameLength = Count(lowerName)
+    
+    Print("Room lowerName: " + lowerRoomName)
+    Print("Name lowerName: " + lowerName)
+    
+    loop i from 0 to Count(lowerRoomName) - nameLength
+      var match = true
+      loop j from 0 to nameLength - 1
+        if (lowerRoomName[i + j] != lowerName[j])
+          match = false
+          break
+        end
+      end
+      if (match)
+        roomList[Count(room)]
+      end
+    end
+  end
+  return roomList
+end
+
+
+ClearText()
+Print("Printing rooms:")
+var filteredRooms = findRoom("Internet")
+loop room in filteredRooms
+  Print(room)
+end
+

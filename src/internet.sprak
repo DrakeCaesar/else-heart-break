@@ -1,0 +1,20 @@
+ClearText()
+var mainframe = Connect("MainFrame")
+var things = mainframe.GetThingsInRoom("Internet")
+# Print("Things: " + things)
+
+# var c = 0
+# loop thing in things
+#   Print(thing)
+#   c++
+#   if c > 10
+#     Input("press any key to continue")
+#     c = 0
+#   end
+# end
+
+var pos = mainframe.GetPosition("Heart")
+Print("Heart is at: " + pos)
+# -190, 3
+
+SetWorldPosition("Internet", -190, 3)

@@ -1,0 +1,11 @@
+Unlock ("Hotel_Office_DoorToBasement")
+Unlock ("Hotel_Lobby_DoorToHotelExterior")
+Unlock ("Hotel_Corridor_Door1")
+Unlock ("Hotel_Corridor_Door2")
+Unlock ("Hotel_Corridor_Door3")
+Unlock ("Hotel_Corridor_Door4")
+Unlock ("Lodge_Entry_DoorToRoom1")
+
+Connect("Lodge_Room1_ModernComputer_1")
+Connect("MainFrame")
+Slurp()

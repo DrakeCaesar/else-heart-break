@@ -1,0 +1,36 @@
+# Best Computer
+# MainFrame
+Goto("Ministry_ChamberOfNumbers_Door1")
+Goto("Internet_Door_13")
+Connect("Hugin")
+
+Connect("Internet_Internet_ComputerTerminal_1")
+Connect("Internet_MediumComputer")
+Connect("Internet_Heart_Analyzer")
+Slurp()
+
+
+
+var Heart = Connect("Heart")
+Heart.Connect("Internet_Heart_Analyzer")
+Slurp()
+
+var tap = Connect("PowerTap")
+tap.Connect("Heart")
+Slurp()
+
+var tap = Connect("PowerTap")
+tap.Connect("Heart")
+tap.Connect("Hugin")
+tap.Connect("MainFrame")
+
+var frame = Connect("MainFrame")
+frame.Connect("Heart")
+frame.Connect("Hugin")
+frame.Connect("PowerTap")
+
+var hugin = Connect("Hugin")
+hugin.Connect("MainFrame")
+hugin.Connect("PowerTap")
+hugin.Connect("Heart")
+Slurp()

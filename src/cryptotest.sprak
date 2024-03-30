@@ -1,0 +1,35 @@
+var PadLeft(num)
+  var str = "" + num
+  var len = 3
+  var pad = " "
+  loop
+    var strLen = Count(str)
+    if strLen < len
+      str = pad + str
+    else
+      break
+    end
+  end
+  return str
+end
+
+ClearText()
+var i = -64
+var output = ""
+var l = 0
+loop
+  var char = IntToChar(i)
+  if (i == 30)
+    output = output + PadLeft(i) + ": " + char + " | "
+    Print(output)
+    break
+  end
+  output = output + PadLeft(i) + ": " + char + " | "
+  l = l + 1
+  if (l == 4)
+    Print(output)
+    output = ""
+    l = 0
+  end
+  i = i + 1
+end
