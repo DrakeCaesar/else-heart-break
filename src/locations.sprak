@@ -34,3 +34,10 @@ hugin.Connect("MainFrame")
 hugin.Connect("PowerTap")
 hugin.Connect("Heart")
 Slurp()
+
+# Lodge_Room1_ModernComputer_1
+# Lodge_FirstCorridor
+# Lodge_SecondCorridor
+# Lodge_Entry
+# Lodge_Room2
+# Lodge_Underwater

@@ -47,30 +47,32 @@ array findRoom(string name)
     var lowerName = ToLowercase(name)
     var nameLength = Count(lowerName)
     
-    Print("Room lowerName: " + lowerRoomName)
-    Print("Name lowerName: " + lowerName)
+    # Print(room)
+    # Print("Name lowerName: " + lowerName)
     
-    loop i from 0 to Count(lowerRoomName) - nameLength
-      var match = true
-      loop j from 0 to nameLength - 1
-        if (lowerRoomName[i + j] != lowerName[j])
-          match = false
+    if (Count(lowerRoomName) >= nameLength)
+      loop i from 0 to Count(lowerRoomName) - nameLength
+        var match = true
+        loop j from 0 to nameLength - 1
+          if (lowerRoomName[i + j] != lowerName[j])
+            match = false
+            break
+          end
+        end
+        if (match)
+          roomList[Count(roomList)] = room
+          Print("Match: " + room)
           break
         end
-      end
-      if (match)
-        roomList[Count(room)]
       end
     end
   end
   return roomList
 end
-
-
 ClearText()
 Print("Printing rooms:")
-var filteredRooms = findRoom("Internet")
+var filteredRooms = findRoom("Lodge")
 loop room in filteredRooms
   Print(room)
 end
-
+Print("Done printing rooms")
