@@ -84,17 +84,24 @@ ClearText()
 
 void Progress(array arr)
   var count = Count(arr)
-  var width = Width()
-  
+  var width = 62
+  var printedSegments = 0
   loop i from 0 to count
-    ClearText()
     var percentage = Int((i / count) * 100)
-    Print("Progress: " + percentage + "%")
-    Print(Width())
+    var segments = Int((i / count) * width)
+    if (segments > printedSegments)
+      loop i from 0 to segments - printedSegments
+        PrintS("#")
+      end
+      printedSegments = segments
+    end
   end
+  Print("")
+  Print("")
+  
 end
 
-Progress(rooms)
+# Progress(rooms)
 
 
 # Info()
@@ -122,14 +129,50 @@ Progress(rooms)
 # Print("Done searching for " + term)\
 
 var sebName = "Sebastian"
-
-var sebRoom = mf.GetRoom(sebName)
-
-var things = mf.GetThingsInRoom(sebRoom)
-
-loop thing in things
-  var type = mf.GetTypeOfThing(thing)
-  if type == "door"
-    Print("Thing" + thing + " is " + type)
+var lastRoom = ""
+loop
+  var sebRoom = mf.GetRoom(sebName)
+  if (lastRoom != sebRoom)
+    Print("Seb's in room: " + sebRoom)
+    Print("    Last room: " + lastRoom)
+    Print("")
+    lastRoom = sebRoom
+    var things = mf.GetThingsInRoom(sebRoom)
+    loop thing in things
+      var type = mf.GetTypeOfThing(thing)
+      if type == "door"
+        Print("Thing" + thing + " is " + type)
+        var door = Connect(thing)
+        var code = 0
+        var unlocked = false
+        if(HasMemory(door))
+          code = LoadMemory(door)
+        end
+        if (!door.Unlock(0))
+          loop code from -65 to 100000
+            if (door.Unlock(code))
+              Print ("Door: " + thing + ", code: " + code)
+              SaveMemory(door, code)
+              break
+            end
+          end
+        end
+      end
+    end
   end
+  Sleep(1)
 end
+
+
+# ClearText()
+# var data = GetMemories()
+
+# Print(data)
+
+# var test = HasMemory("champion")
+
+# Print("has champion " + test)
+
+# var champion = LoadMemory("champion")
+
+# Print(champion)
