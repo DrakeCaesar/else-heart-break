@@ -55,18 +55,16 @@ end
 
 ClearText()
 
-# Print("Searching for: " + term)
-# var filteredRooms = findSubstrings(term, rooms)
+Print("Searching for: " + term)
+var filteredRooms = findSubstrings(term, rooms)
 
-# loop room in filteredRooms
-#   Print(room)
-# end
-# Print("Done printing rooms")
+loop room in filteredRooms
+  Print(room)
+end
+Print("Done printing rooms")
 
-# Print("Printing inventory")
+Print("Printing inventory")
 
-# Connect("Monad")
-# Slurp()
 
 # array inv = mf.GetThingsInRoom(term)
 # loop thing in inv

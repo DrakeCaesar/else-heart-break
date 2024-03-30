@@ -2,4 +2,8 @@
 # SetWorldPosition("PixiesApartment", 24, 21)
 Position()
 
-SetWorldPosition("BarYvonne", 13, 32)
+
+#SetWorldPosition("BarYvonne", 13, 32)
+
+#SetWorldPosition("Internet", -190,3)
+SetWorldPosition("Monad_inventory", 0, 0)
