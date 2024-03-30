@@ -1,0 +1,18 @@
+# var mainframe = Connect("MainFrame")
+# ClearText()
+# var things = mainframe.GetThingsInRoom("Testing");
+# var i = 0
+# loop thing in things
+#   Print(thing)
+#   i = i + 1
+#   if i > 10
+#     Input("Press any key to continue...")
+#     ClearText()
+#     i = 0
+#   end
+# end
+
+# Connect("Internet_MediumComputer")
+# Slurp()
+Connect("TestComputer1")
+Slurp()

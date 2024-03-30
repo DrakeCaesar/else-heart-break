@@ -1,3 +1,2 @@
 SetLiquidAmount(99999)
 
-AppendCode("# Refilled by " + GetName())

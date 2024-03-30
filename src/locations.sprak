@@ -7,6 +7,8 @@ Connect("Hugin")
 Connect("Internet_Internet_ComputerTerminal_1")
 Connect("Internet_MediumComputer")
 Connect("Internet_Heart_Analyzer")
+var ha = Connect("Internet_Heart_Analyzer")
+ha.Connect("Internet_Internet_ComputerTerminal_1")
 Slurp()
 
 

@@ -10,3 +10,6 @@ Print("Things: " + things)
 # Connect("Heart")
 # Connect("Huggin")
 # Slurp()
+
+Connect("FelixHomeComputer")
+Slurp()

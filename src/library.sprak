@@ -1,7 +1,7 @@
 var mainframe = Connect("MainFrame")
 
-var rooms = GetAllRooms()
-var users = GetPeople()
+var rooms = mainframe.GetAllRooms()
+var users = mainframe.GetPeople()
 
 var ToLowercase(var text)
   var res = ""
@@ -76,3 +76,15 @@ loop room in filteredRooms
   Print(room)
 end
 Print("Done printing rooms")
+
+var things = users
+
+var c = 0
+loop thing in things
+  Print(thing)
+  c++
+  if c > 10
+    Input("press any key to continue")
+    c = 0
+  end
+end

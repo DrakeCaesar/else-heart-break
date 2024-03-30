@@ -1,9 +1,9 @@
-var list = Range(0, 10)
+var list = Range(0, 100000)
 
 
 loop key in list
   var test = Unlock(key)
-  Say(test)
+  # Say(test)
   if (test == true)
     return
   end
