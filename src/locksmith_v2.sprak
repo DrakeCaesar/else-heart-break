@@ -1,10 +1,7 @@
 var mf = Connect("MainFrame")
 var sebName = "Sebastian"
 
-ClearText()
-Print("Test")
-
-string ProgresBar(var progress, var total, var width)
+string ProgressBar(var progress, var total, var width)
   var percentage = Int((progress / total) * 100)
   var segments = Int((progress / total) * width)
   var bar = ""
@@ -14,8 +11,21 @@ string ProgresBar(var progress, var total, var width)
   return bar
 end
 
+var offset = 20
+var usableWidth = Width() - (offset * 2 )
+
+var progressLine(var progress, var total, var y)
+  var ratio = progress / total
+  Rect(offset , offset + y, offset + ratio * usableWidth, offset + 10 + y)
+end
+
+
+array doors
+
 var rooms = mf.GetAllRooms()
 var rm = Count(rooms)
+ClearText()
+
 loop ri from 0 to rm - 1
   if (rm == 0)
     break
@@ -28,15 +38,37 @@ loop ri from 0 to rm - 1
     end
     var type = mf.GetTypeOfThing(things[ti])
     if type == "door"
-      Unlock(things[ti])
-      
-      Print("r: " + ri + "/" + rm + " t: " + ti + "/" + tm)
-      
-      var p1 = ProgresBar(ri, rm, 62)
-      var p2 = ProgresBar(ti, tm, 62)
-      Print(p1)
-      Print(p2)
+      Append(doors, things[ti])
     end
+    Text(0, 0, "Room:  " + (ri + 1) + "/" + rm + "                               ")
+    Text(0, 1, "Thing: " + (ti + 1) + "/" + tm + "                               ")
+    
+    progressLine(ri, rm, 20)
+    progressLine(ti, tm, 40)
+    DisplayGraphics()
   end
 end
 
+
+Color(0, 0, 0)
+Rect(0, 0, Width(), Height())
+DisplayGraphics()
+ClearMemories()
+loop door in doors
+  SaveMemory(door, door)
+  Print("Saving door " + door)
+end
+
+var memories = GetMemories()
+var count = Count(memories)
+Print("We have " + count + " memories")
+
+
+# Color(1, 1, 1)
+# loop
+#   loop door in doors
+#     Unlock(door)
+#   end
+# end
+
+# 412

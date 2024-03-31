@@ -1,0 +1,12 @@
+
+var mf = Connect("MainFrame")
+var doors = mf.GetThingsOfType("door")
+
+#Print("doors: " + Count(doors))
+
+loop
+  loop door in doors
+    Unlock(door)
+  end
+end
+
