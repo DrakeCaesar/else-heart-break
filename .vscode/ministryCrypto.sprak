@@ -1,50 +1,38 @@
+number heart = Connect("Heart")
+number mf = Connect("Mainframe")
+number pt = Connect("PowerTap")
+number ms = Connect("MeteorologicalServer")
+number rc = Connect("Ministry_ChamberOfNumbers_LargeRecorder_LargeRecorder_4")
+
 ClearText()
+string encrypted = "a00j ksdhg 245kljshg a sl3434 kjghklj434 651 xsdhgkl"
 
-Print("MINISTRY CRYPTO")
+var bigString = ""
+var count = 0
 
-string s = Input("Enter key: ")
-number k = CharToInt(s[0])
-
-Print("Enter message:")
-string message = Input("")
-
-string encrypted = ""
-
-loop c in message
-  if c == " "
-    encrypted += " "
-  else
-    # var sum = Mod(k + CharToInt(c), 25)
-    Print("sum for " + c + " = " + sum)
-    
-    var c2 = IntToChar(sum)
-    encrypted += c2
-  end
-end
-
-Print("Encrypted:")
-Print("------------")
-Print(encrypted)
-Print("------------")
-
-string decrypted = ""
-
-loop c in encrypted
-  if c == " "
-    decrypted += " "
-  else
-    var diff = CharToInt(c) - k
-    
-    if diff < 0
-      diff += 25
+loop k from 0 to 1000
+  string decrypted = ""
+  
+  loop c in encrypted
+    if c == " "
+      decrypted += " "
+    else
+      var diff = CharToInt(c) - k
+      
+      if diff < 0
+        diff += 25
+      end
+      
+      var originalChar = IntToChar(Mod(diff, 25))
+      decrypted += originalChar
     end
-    
-    var originalChar = IntToChar(Mod(diff, 25))
-    decrypted += originalChar
   end
+  
+  Print(decrypted)
+  count++
+  if (rc.StringContains(bigString, decrypted))
+    Print(count)
+    break
+  end
+  bigString += decrypted
 end
-
-Print("Decrypted:")
-Print("------------")
-Print(decrypted)
-Print("------------")

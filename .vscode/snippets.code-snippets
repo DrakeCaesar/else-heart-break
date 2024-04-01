@@ -724,16 +724,16 @@
 
   //#region Heart
 
-  "SetNumericalData": {
-    "prefix": "heart.SetNumericalData",
+  "SetNumericData": {
+    "prefix": "heart.SetNumericData",
     "body": [
-      "heart.SetNumericalData(${1:objectName}, ${2:dataName, ${3:value})"
+      "heart.SetNumericData(${1:objectName}, ${2:dataName}, ${3:value})"
     ],
     "description": "Set numeric data on object"
   },
-  "GetNumericalData": {
-    "prefix": "heart.GetNumericalData",
-    "body": ["heart.GetNumericalData(${1:objectName}, ${2:dataName})"],
+  "GetNumericData": {
+    "prefix": "heart.GetNumericData",
+    "body": ["heart.GetNumericData(${1:objectName}, ${2:dataName})"],
     "description": "Get numeric data on object"
   },
   "ZapPersonGently": {
@@ -750,7 +750,7 @@
       "number mf = Connect(\"Mainframe\")",
       "number pt = Connect(\"PowerTap\")",
       "number ms = Connect(\"MeteorologicalServer\")",
-      "number rc = Connect(\"Recorder\")",
+      "number rc = Connect(\"Ministry_ChamberOfNumbers_LargeRecorder_LargeRecorder_4\")",
       "",
       "${0}"
     ],
