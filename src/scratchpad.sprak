@@ -1,0 +1,26 @@
+var heart = Connect("Heart")
+number mf = Connect("MainFrame")
+number pt = Connect("PowerTap")
+number ms = Connect("MeteorologyServer")
+number rc = Connect("Ministry_ChamberOfNumbers_LargeRecorder_LargeRecorder_4")
+
+ClearText()
+
+# var rooms = mf.GetAllRooms()
+# loop room in rooms
+#   var c1 = rc.StringContains(room,"inventory")
+#   var c2 = rc.StringContains(room,"Monad")
+#   if (c1 && c2)
+#     Print(room)
+#   end
+# end
+
+var things = mf.GetThingsInRoom("Monad_inventory")
+Print("things in Monad_inventory")
+loop thing in things
+  Print(thing)
+  mf.SetPosition(thing, "SebastianCreditCard")
+end
+
+var heart = Connect("Heart")
+heart.ZapPersonGently("Dorian")

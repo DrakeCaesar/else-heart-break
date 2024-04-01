@@ -14,6 +14,13 @@ loop door in doors
   Append(roomsWithDoors, room)
 end
 
+var portals = mf.GetThingsOfType("portal")
+loop portal in portals
+  # Print(portal)
+  var room = mf.GetPosition(portal)
+  Append(roomsWithDoors, room)
+end
+
 var doorString = ""
 loop room in roomsWithDoors
   doorString = doorString + room + " "
