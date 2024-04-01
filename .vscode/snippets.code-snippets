@@ -696,28 +696,28 @@
 
   //#region Recorder
   "StringContains": {
-    "prefix": "StringContains",
-    "body": ["StringContains(${1:string}, ${2:substring})"],
+    "prefix": "rc.StringContains",
+    "body": ["rc.StringContains(${1:string}, ${2:substring})"],
     "description": "Checks whether a string contains a substring"
   },
   "MovePerson": {
-    "prefix": "MovePerson",
-    "body": ["MovePerson(${1:name}, ${2:target} )"],
+    "prefix": "rc.MovePerson",
+    "body": ["rc.MovePerson(${1:name}, ${2:target} )"],
     "description": "Move an intruder in the room to the position of another thing"
   },
   "ZapPerson": {
-    "prefix": "ZapPerson",
-    "body": ["ZapPerson(${1:name})"],
+    "prefix": "rc.ZapPerson",
+    "body": ["rc.ZapPerson(${1:name})"],
     "description": "Zap an intruder in the room (will make them fall asleep)"
   },
   "RestoreCode": {
-    "prefix": "RestoreCode",
-    "body": ["RestoreCode(${1:name})"],
+    "prefix": "rc.RestoreCode",
+    "body": ["rc.RestoreCode(${1:name})"],
     "description": "Resets code to default state"
   },
   "Broadcast": {
-    "prefix": "Broadcast",
-    "body": ["Broadcast(${1:pMessage})"],
+    "prefix": "rc.Broadcast",
+    "body": ["rc.Broadcast(${1:pMessage})"],
     "description": "Broadcast a message, Use with caution."
   },
   //#endregion
@@ -747,9 +747,9 @@
     "prefix": "init",
     "body": [
       "number heart = Connect(\"Heart\")",
-      "number mf = Connect(\"Mainframe\")",
+      "number mf = Connect(\"MainFrame\")",
       "number pt = Connect(\"PowerTap\")",
-      "number ms = Connect(\"MeteorologicalServer\")",
+      "number ms = Connect(\"MeteorologyServer\")",
       "number rc = Connect(\"Ministry_ChamberOfNumbers_LargeRecorder_LargeRecorder_4\")",
       "",
       "${0}"

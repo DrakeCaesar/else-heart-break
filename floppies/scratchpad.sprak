@@ -1,137 +1,77 @@
+var mf = Connect("MainFrame")
+var sebName = "Sebastian"
 
-var server = Connect("Wellspringer")
+string ProgressBar(var progress, var total, var width)
+  var percentage = Int((progress / total) * 100)
+  var segments = Int((progress / total) * width)
+  var bar = ""
+  loop i from 0 to segments
+    bar = bar + "#"
+  end
+  return bar
+end
 
+var offset = 20
+var usableWidth = Width() - (offset * 2 )
 
-var name = GetUser()
-if(name == "Sebastian")
-  Goto("Internet_Door_13")
-else
-  Goto("RentingApartmentsLobby_DoubleDoor1")
+var progressLine(var progress, var total, var y)
+  var ratio = progress / total
+  Rect(offset , offset + y, offset + ratio * usableWidth, offset + 10 + y)
 end
 
 
-# var things = users
+array doors
 
-# var c = 0
-# loop thing in things
-#   Print(thing)
-#   c++
-#   if c > 28
-#      Input("-------------------------")
-#     c = 0
-#   end
-# end
+var rooms = mf.GetAllRooms()
+var rm = Count(rooms)
+ClearText()
 
-# Slurp()
-
-# var monad = mf.GetPosition("Monad")
-# Print(monad)
-
-# var location = ""
-# var posX = 0
-# var posY = 0
-
-
-# var max = Count(monad)
-# loop i from 6 to max
-#   if (monad[i] == ",")
-#     break
-#   end
-#   location += monad[i]
-# end
-
-
-# bool x = false
-# bool y = false
-# string xStr = ""
-# string yStr = ""
-
-# var min = 6 + Count(location)
-# loop i from min to 1000
-#   if (x)
-#     xStr += monad[i]
-#   end
-#   if (y)
-#     yStr += monad[i]
-#   end
-
-#   if (monad[i] == "(")
-#     x = true
-#   end
-#   if (monad[i+1] == ",")
-#     x = false
-#   end
-#   if (monad[i] == "," && xStr != "")
-#     x = false
-#     y = true
-#   end
-#   if (monad[i+1] == ")")
-#     y = false
-#     break
-#   end
-# end
-
-# Print("X: " + xStr)
-# Print("Y: " + yStr)
+loop ri from 0 to rm - 1
+  if (rm == 0)
+    break
+  end
+  var things = mf.GetThingsInRoom(rooms[ri])
+  var tm = Count(things)
+  loop ti from 0 to tm - 1
+    if (tm == 0)
+      break
+    end
+    var type = mf.GetTypeOfThing(things[ti])
+    if type == "door"
+      Append(doors, things[ti])
+    end
+    Text(0, 0, "Room:  " + (ri + 1) + "/" + rm + "                               ")
+    Text(0, 1, "Thing: " + (ti + 1) + "/" + tm + "                               ")
+    
+    progressLine(ri, rm, 20)
+    progressLine(ti, tm, 40)
+    DisplayGraphics()
+  end
+end
 
 
-# PrintS(location)
+Color(0, 0, 0)
+Rect(0, 0, Width(), Height())
+DisplayGraphics()
+ClearMemories()
+loop door in doors
+  SaveMemory(door, door)
+  Print("Saving door " + door)
+end
 
-# Slurp()
+var memories = GetMemories()
+var count = Count(memories)
+Print("We have " + count + " memories")
 
-# var name = Name()
+
+# Color(1, 1, 1)
 # loop
-#   ZapPerson("Monad")
-#   Sleep(1)
-#   Print(name)
+#   loop door in doors
+#     Unlock(door)
+#   end
 # end
 
-
-# SetWorldPosition("PixiesApartment", 24, 21)
-Position()
-
-loop
-  ClearText()
-  Info()
-  Sleep(1)
-end
-
-SetMhz(500)
-SetMaxTime(-2)
-EnableAPI("internet")
-EnableAPI("memory")
-EnableAPI("floppy")
-EnableAPI("door")
-EnableAPI("arcade")
+# 412
 
 
-var mems = GetMemories()
-Print(mems)
-loop m in mems
-  Print(m)
-end
-
-var heart = Connect("Heart")
-heart.Connect("mainFrame")
-var anal = Connect("Internet_Heart_Analyzer")
-anal.Connect("mainFrame")
-Slurp()
-
-loop
-  FastForward()
-  QuickBoost()
-  Trippy()
-  Sleep(1)
-end
-
-
-var name = Name()
-if (name == "Sebastian")
-  Goto("Monad_inventory")
-else
-  Goto("YvonneToilet_DoorToBar")
-end
-loop i from 6 to max
-  
-end
 
