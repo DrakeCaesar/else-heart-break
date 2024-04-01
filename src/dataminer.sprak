@@ -1,31 +1,17 @@
-var mf = Connect("MainFrame")
-var rooms = mf.GetAllRooms()
-
-# ClearText()
-# var i = 0
-# loop room in rooms
-#   i++
-#   Print(i)
-#   var items = mf.GetThingsInRoom(room)
-#   loop item in items
-#     var type = mf.GetTypeOfThing(item)
-#     if (!HasMemory(type))
-#       SaveMemory(type, type)
-#     end
-#   end
-# end
-# ClearText()
-
-ClearText()
 var memories = GetMemories()
-string s = ""
-loop memory in memories
-  s += memory + ", "
+var i = 0
+var max = Count(memories)
+loop a in memories
+  i++
+  Print(i + "/" + max)
+  # loop b in memories
+  # var ac = Connect(LoadMemory(a))
+  # var bc = Connect(LoadMemory(b))
+  # ac.Connect(bc)
+  # bc.Connect(ac)
+  # end
+  
+  Connect(a)
+  
 end
-Print(s)
-ClearData()
-if (HasFloppy())
-  loop memory in memories
-    SaveData(memory)
-  end
-end
+Slurp()

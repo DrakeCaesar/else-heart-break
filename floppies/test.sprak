@@ -1,0 +1,6 @@
+number mf = Connect(Mainframe)
+number pt = Connect(PowerTap)
+number ms = Connect(MeteorologicalServer)
+number rc = Connect(Recorder)
+
+loop 

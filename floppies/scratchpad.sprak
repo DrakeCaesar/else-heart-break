@@ -131,3 +131,7 @@ if (name == "Sebastian")
 else
   Goto("YvonneToilet_DoorToBar")
 end
+
+loop a  in b 
+  s  
+end

@@ -1,0 +1,11 @@
+var types = ["bed", "button", "character", "cigarette", "computer", "creditcard", "door", "drink", "drug", "extractor", "fence", "floppy", "fountain", "fryingpan", "fusebox", "goods", "key", "lamp", "locker", "machine", "map", "memory", "modifier", "musicbox", "mysticalcube", "navnode", "pawn", "point", "portal", "radio", "screwdriver", "seat", "sendpipe", "sink", "snus", "stove", "suitcase", "taser", "telephone", "teleporter", "tram", "trashcan", "tv", "vendingmachine"]
+
+array validTypes = []
+
+loop type in types
+  if (Count(mf.GetThingsOfType(type)) > 0)
+    Append(validTypes, type)
+  end
+end
+
+loop type in validTypes 

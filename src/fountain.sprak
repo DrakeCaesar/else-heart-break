@@ -1,8 +1,8 @@
 TurnOn()
 loop
-  SetColor(255,000,000)
+  SetColor(1,0,0)
   Sleep(1)
-  SetColor(000,255,000)
+  SetColor(0,1,0)
   Sleep(1)
-  SetColor(000,000,255)
+  SetColor(0,0,1)
 end

@@ -39,11 +39,13 @@
   },
   "cSpell.words": [
     "creditcard",
+    "fryingpan",
     "musicbox",
     "mysticalcube",
     "navnode",
     "sendpipe",
     "snus",
     "vendingmachine"
-  ]
+  ],
+  "files.defaultLanguage": "sprak"
 }

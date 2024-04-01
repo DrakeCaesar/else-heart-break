@@ -11,7 +11,7 @@ extractor
 fence
 floppy
 fountain
-frying
+fryingpan
 fusebox
 goods
 key
