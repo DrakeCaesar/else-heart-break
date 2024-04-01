@@ -57,7 +57,7 @@ end
 
 ClearText()
 
-var term = "inventory"
+var term = "NorthHarbor"
 Print("Searching for: " + term)
 var filteredRooms = findSubstrings(term, rooms)
 
@@ -104,7 +104,7 @@ void Progress(array arr)
   Print("")
 end
 
-Progress(rooms)
+# Progress(rooms)
 
 
 # Info()

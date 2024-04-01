@@ -1,0 +1,31 @@
+number heart = Connect("Heart")
+number mf = Connect("MainFrame")
+number pt = Connect("PowerTap")
+number ms = Connect("MeteorologyServer")
+number rc = Connect("Ministry_ChamberOfNumbers_LargeRecorder_LargeRecorder_4")
+
+ClearText()
+
+var doors = mf.GetThingsOfType("door")
+var roomsWithDoors = []
+loop door in doors
+  # Print(door)
+  var room = mf.GetPosition(door)
+  Append(roomsWithDoors, room)
+end
+
+var doorString = ""
+loop room in roomsWithDoors
+  doorString = doorString + room + " "
+end
+
+var rooms = mf.GetAllRooms()
+loop room in rooms
+  if (!rc.StringContains(doorString, room))
+    if (!rc.StringContains(room, "inventory"))
+      if (!rc.StringContains(room, "locker"))
+        Print(room)
+      end
+    end
+  end
+end

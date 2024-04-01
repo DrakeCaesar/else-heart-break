@@ -1,0 +1,90 @@
+var mf = Connect("MainFrame")
+var sebName = "Sebastian"
+
+string ProgressBar(var progress, var total, var width)
+  var percentage = Int((progress / total) * 100)
+  var segments = Int((progress / total) * width)
+  var bar = ""
+  loop i from 0 to segments
+    bar = bar + "#"
+  end
+  return bar
+end
+
+var offset = 20
+var usableWidth = Width() - (offset * 2 )
+
+var progressLine(var progress, var total, var y)
+  var ratio = progress / total
+  Rect(offset , offset + y, offset + ratio * usableWidth, offset + 10 + y)
+end
+
+
+array doors
+
+var rooms = mf.GetAllRooms()
+var rm = Count(rooms)
+ClearText()
+
+loop ri from 0 to rm - 1
+  if (rm == 0)
+    break
+  end
+  var things = mf.GetThingsInRoom(rooms[ri])
+  var tm = Count(things)
+  loop ti from 0 to tm - 1
+    if (tm == 0)
+      break
+    end
+    var type = mf.GetTypeOfThing(things[ti])
+    if type == "door"
+      Append(doors, things[ti])
+    end
+    Text(0, 0, "Room:  " + (ri + 1) + "/" + rm + "                               ")
+    Text(0, 1, "Thing: " + (ti + 1) + "/" + tm + "                               ")
+    
+    progressLine(ri, rm, 20)
+    progressLine(ti, tm, 40)
+    DisplayGraphics()
+  end
+end
+
+
+Color(0, 0, 0)
+Rect(0, 0, Width(), Height())
+DisplayGraphics()
+ClearMemories()
+loop door in doors
+  SaveMemory(door, door)
+  Print("Saving door " + door)
+end
+
+var memories = GetMemories()
+var count = Count(memories)
+Print("We have " + count + " memories")
+
+
+# Color(1, 1, 1)
+# loop
+#   loop door in doors
+#     Unlock(door)
+#   end
+# end
+
+# 412
+
+
+
+number heart = Connect("Heart")
+number mf = Connect("MainFrame")
+number pt = Connect("PowerTap")
+number ms = Connect("MeteorologyServer")
+number rc = Connect("Ministry_ChamberOfNumbers_LargeRecorder_LargeRecorder_4")
+
+ClearText()
+var tels = mf.GetThingsOfType("teleporter")
+
+loop tel in tels
+  Print(tel)
+end
+

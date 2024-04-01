@@ -1,17 +1,50 @@
-var memories = GetMemories()
-var i = 0
-var max = Count(memories)
-loop a in memories
-  i++
-  Print(i + "/" + max)
-  # loop b in memories
-  # var ac = Connect(LoadMemory(a))
-  # var bc = Connect(LoadMemory(b))
-  # ac.Connect(bc)
-  # bc.Connect(ac)
-  # end
-  
-  Connect(a)
-  
+number heart = Connect("Heart")
+number mf = Connect("MainFrame")
+number pt = Connect("PowerTap")
+number ms = Connect("MeteorologyServer")
+number rc = Connect("Ministry_ChamberOfNumbers_LargeRecorder_LargeRecorder_4")
+
+var types = ["bed", "button", "character", "cigarette", "computer", "creditcard", "door", "drink", "drug", "extractor", "fence", "floppy", "fountain", "fryingpan", "fusebox", "goods", "key", "lamp", "locker", "machine", "map", "memory", "modifier", "musicbox", "mysticalcube", "navnode", "pawn", "point", "portal", "radio", "screwdriver", "seat", "sendpipe", "sink", "snus", "stove", "suitcase", "taser", "telephone", "teleporter", "tram", "trashcan", "tv", "vendingmachine"]
+
+array validTypes = []
+
+var PadLeft(num)
+  var str = "" + num
+  var len = 2
+  var pad = " "
+  loop
+    var strLen = Count(str)
+    if strLen < len
+      str = pad + str
+    else
+      break
+    end
+  end
+  return str
 end
-Slurp()
+
+loop type in types
+  if (Count(mf.GetThingsOfType(type)) > 0)
+    Append(validTypes, "valid " + type)
+  else
+    Append(validTypes, "      " + type)
+  end
+end
+var height = 30
+var width = 62
+
+ClearText()
+
+var i = 0
+loop type in validTypes
+  string text = PadLeft(i) + " " + type
+  var x = Int(i / height) * (width/2)
+  var y = Mod(i, height)
+  Text(x, y, text)
+  # Print("x: " + x + " y: " + y + " text: " + text)
+  i++
+end
+
+DisplayGraphics()
+
+

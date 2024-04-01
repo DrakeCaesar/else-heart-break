@@ -417,7 +417,9 @@
   },
   "EnableAPI": {
     "prefix": "EnableAPI",
-    "body": ["EnableAPI(${1:name})"],
+    "body": [
+      "EnableAPI(${1|\"internet\",\"arcade\",\"floppy\",\"memory\",\"door\"|})"
+    ],
     "description": "Enable an API"
   },
   "SetMaxTime": {
@@ -473,9 +475,9 @@
     "body": ["IsUser(${1:name})"],
     "description": "Test if the drinker has a certain name"
   },
-  "GetRoom": {
-    "prefix": "mf.GetRoom",
-    "body": ["mf.GetRoom()"],
+  "GetRoom_Drink": {
+    "prefix": "GetRoom",
+    "body": ["GetRoom()"],
     "description": "Get the room of the drinker"
   },
   //#endregion
@@ -583,6 +585,49 @@
   },
   //#endregion
 
+  //#region Mixers
+  "SetCutoff": {
+    "prefix": "SetCutoff",
+    "body": ["SetCutoff(${1:pCuttoff})"],
+    "description": "Set the cutoff for the sound that is playing"
+  },
+  "SetResonance": {
+    "prefix": "SetResonance",
+    "body": ["SetResonance(${1:pResonance})"],
+    "description": "Set the filter resonance for the sound that is playing"
+  },
+  "SetPitch": {
+    "prefix": "SetPitch",
+    "body": ["SetPitch(${1:pPitch})"],
+    "description": "Set the pitch for the sound that is playing"
+  },
+  "PlayLoop": {
+    "prefix": "PlayLoop",
+    "body": ["PlayLoop(${1:pSoundName})"],
+    "description": "Set the sound to play in a loop"
+  },
+  "Play": {
+    "prefix": "Play",
+    "body": ["Play(${1:pSoundName})"],
+    "description": "Start playing the current sound"
+  },
+  "Stop": {
+    "prefix": "Stop",
+    "body": ["Stop()"],
+    "description": "Stop the current sound"
+  },
+  "TogglePause": {
+    "prefix": "TogglePause",
+    "body": ["TogglePause()"],
+    "description": "Pause or unpause the sound"
+  },
+  "IsPlaying": {
+    "prefix": "IsPlaying",
+    "body": ["IsPlaying()"],
+    "description": "Is a sound playing?"
+  },
+  //#endregion
+
   //#region Extractors
   "GetName": {
     "prefix": "GetName",
@@ -625,7 +670,9 @@
 
   "GetThingsOfType": {
     "prefix": ["mf.GetThingsOfType"],
-    "body": ["mf.GetThingsOfType(${1})"]
+    "body": [
+      "mf.GetThingsOfType(${1|\"bed\",\"creditcard\",\"door\",\"drink\",\"extractor\",\"fence\",\"floppy\",\"fountain\",\"fryingpan\",\"fusebox\",\"goods\",\"key\",\"lamp\",\"locker\",\"machine\",\"map\",\"memory\",\"modifier\",\"musicbox\",\"mysticalcube\",\"pawn\",\"point\",\"portal\",\"radio\",\"screwdriver\",\"seat\",\"sendpipe\",\"sink\",\"snus\",\"suitcase\",\"taser\",\"teleporter\",\"tram\",\"trashcan\",\"tv\",\"vendingmachine\"|})"
+    ]
   },
   "GetThingsInRoom": {
     "prefix": "mf.GetThingsInRoom",
@@ -660,6 +707,10 @@
     "prefix": ["mf.InteractWith"],
     "body": ["mf.InteractWith(${1:name, ${2:target})"],
     "description": "Interact with an object"
+  },
+  "GetRoom": {
+    "prefix": "mf.GetRoom",
+    "body": ["mf.GetRoom(${1:name})"]
   },
   //#endregion
 

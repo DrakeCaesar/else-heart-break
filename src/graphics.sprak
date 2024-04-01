@@ -1,0 +1,93 @@
+number heart = Connect("Heart")
+number mf = Connect("MainFrame")
+number pt = Connect("PowerTap")
+number ms = Connect("MeteorologyServer")
+number rc = Connect("Ministry_ChamberOfNumbers_LargeRecorder_LargeRecorder_4")
+
+var types = ["bed", "button", "character", "cigarette", "computer", "creditcard", "door", "drink", "drug", "extractor", "fence", "floppy", "fountain", "fryingpan", "fusebox", "goods", "key", "lamp", "locker", "machine", "map", "memory", "modifier", "musicbox", "mysticalcube", "navnode", "pawn", "point", "portal", "radio", "screwdriver", "seat", "sendpipe", "sink", "snus", "stove", "suitcase", "taser", "telephone", "teleporter", "tram", "trashcan", "tv", "vendingmachine"]
+
+array validTypes = []
+
+loop type in types
+  if (Count(mf.GetThingsOfType(type)) > 0)
+    Append(validTypes, type)
+  end
+end
+
+var i = 0
+var height = 30
+var width = 62
+
+number charHeight = 8.53334
+number charWidth = 8.258064
+number gridHeight = Round(Height() / charHeight)
+number gridWidth = Round(Width() / charWidth)
+
+string clearLine = ""
+string fullLine = ""
+loop x from -1 to gridWidth
+  clearLine = clearLine + " "
+  fullLine = fullLine + "X"
+end
+
+string edgeLine = ""
+loop x from 0 to gridWidth - 1
+  edgeLine += "X"
+end
+
+string normalLine = "X"
+loop x from 1 to gridWidth - 2
+  normalLine += "-"
+end
+normalLine += "X"
+
+var ClearAll()
+  loop y from -1 to gridHeight
+    Text(-1, y, clearLine)
+  end
+end
+
+var Artifact()
+  loop y from -1 to gridHeight
+    Text(-1, y, fullLine)
+  end
+end
+
+
+var GraphicsTest()
+  Text(0, 0, edgeLine)
+  loop y from 1 to gridHeight - 2
+    Text(0, y, normalLine)
+  end
+  Text(0, gridHeight - 1, edgeLine)
+end
+
+ClearText()
+
+Artifact()
+ClearAll()
+GraphicsTest()
+
+# Text(5,8,"grid width:  " + Width())
+# Text(5,9,"grid height: " + Height())
+
+# Text(5,11,"grid width:  " + gridWidth)
+# Text(5,12,"grid height: " + gridHeight)
+
+DisplayGraphics()
+
+
+
+# loop type in validTypes
+#   string text = "Type " + i + ": " + type
+#   var x = Int(i / height) * (width/2)
+#   var y = Mod(i, height)
+#   Text(x, y, text)
+#    Print("x: " + x + " y: " + y + " text: " + text)
+#   i++
+#   DisplayGraphics()
+# end
+
+# graphicsTest()
+
+

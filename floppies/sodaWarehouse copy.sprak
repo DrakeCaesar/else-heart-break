@@ -1,0 +1,3 @@
+Unlock("HarborWest_DoorToSodaStorage")
+Sleep(5)
+Lock("HarborWest_DoorToSodaStorage")

@@ -1,0 +1,27 @@
+var name = GetUser()
+if (name == "Sebastian")
+  var sink = Connect("FelixApartment_Poor_WaterTap_Poor_WaterTap_1")
+  var computer = Connect("FelixHomeComputer")
+  var status = 0
+  loop
+    # status = status + 1
+    # if (status > 1)
+    #   Say("Drinking")
+    #   status = 0
+    # end
+    sink.SetLiquidAmount(99999)
+    Charisma(99999)
+    sink.SetLiquidAmount(99999)
+    Smelliness(-99999)
+    sink.SetLiquidAmount(99999)
+    Sleepiness(-99999)
+    sink.SetLiquidAmount(99999)
+    Drunkenness(-99999)
+    sink.SetLiquidAmount(99999)
+    Corruption(-99999)
+    sink.SetLiquidAmount(99999)
+    Speed(99999)
+    sink.SetLiquidAmount(99999)
+    computer.Sleep(1)
+  end
+end
