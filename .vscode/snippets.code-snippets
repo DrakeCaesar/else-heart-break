@@ -232,26 +232,6 @@
     "body": ["Lines(${1:points})"],
     "description": "no ingame desc likely a list of [x,y] objects to denote points on a poly line"
   },
-  "GetConnections": {
-    "prefix": "GetConnections",
-    "body": ["GetConnections()"],
-    "description": "Get a list of all connections (list of names)"
-  },
-  "Slurp": {
-    "prefix": "Slurp",
-    "body": ["Slurp()"],
-    "description": "Use with caution"
-  },
-  "Connect": {
-    "prefix": "Connect",
-    "body": ["Connect(${1:name})"],
-    "description": "No ingame desc"
-  },
-  "DisconnectAll": {
-    "prefix": "DisconnectAll",
-    "body": ["DisconnectAll()"],
-    "description": "Remove all connections"
-  },
 
   "IsKeyPressed": {
     "prefix": "IsKeyPressed",
@@ -274,6 +254,91 @@
     "prefix": "FindPath",
     "body": ["FindPath(${1:start, ${2:goal})"],
     "description": "Find the path between two objects"
+  },
+  //#endregion
+
+  //#region Stove
+  "ClearCode": {
+    "prefix": "ClearCode",
+    "body": ["ClearCode()"],
+    "description": "Remove all source code in the object on the stove"
+  },
+  "GetCode_Stove": {
+    "prefix": "GetCode",
+    "body": ["GetCode()"],
+    "description": "Get the source code in the object on the stove"
+  },
+  "AppendCode_Stove": {
+    "prefix": "AppendCode",
+    "body": ["AppendCode(${1:code})"],
+    "description": "Add code to the end of the objects program"
+  },
+  //#endregion
+
+  //#region Sink
+  "SetLiquidAmount": {
+    "prefix": "SetLiquidAmount",
+    "body": ["SetLiquidAmount(${1:amount})"],
+    "description": "Set the liquid amount of the drink"
+  },
+  "GetName_Sink": {
+    "prefix": "GetName",
+    "body": ["GetName()"],
+    "description": "Returns the name of the sink"
+  },
+  "ClearCode_Sink": {
+    "prefix": "ClearCode",
+    "body": ["ClearCode()"],
+    "description": "Remove all source code in the drink"
+  },
+  "AppendCode_Sink": {
+    "prefix": "AppendCode",
+    "body": ["AppendCode(${1:code})"],
+    "description": "Add code to the end of the drink program"
+  },
+  //#endregion
+
+  //#region Lamp
+  "SetColor": {
+    "prefix": "SetColor",
+    "body": ["SetColor(${1:r}, ${2:g}, ${3:b})"],
+    "description": "Set the color of the lamp"
+  },
+  "IsNight": {
+    "prefix": "IsNight",
+    "body": ["IsNight()"],
+    "description": "Returns true if it is night"
+  },
+  "TurnOn_Lamp": {
+    "prefix": "TurnOn",
+    "body": ["TurnOn()"],
+    "description": "Turn on the lamp"
+  },
+  "TurnOff_Lamp": {
+    "prefix": "TurnOff",
+    "body": ["TurnOff()"],
+    "description": "Turn off the lamp"
+  },
+  //#region Internet
+  "GetConnections": {
+    "prefix": "GetConnections",
+    "body": ["GetConnections()"],
+    "description": "Get a list of all connections (list of names)"
+  },
+  "Slurp": {
+    "prefix": "Slurp",
+    "body": ["Slurp()"],
+    "description": "Use with caution"
+  },
+  "Connect": {
+    "prefix": "Connect",
+    "body": ["Connect(${1:name})"],
+    "description": "No ingame desc"
+  },
+  "DisconnectAll": {
+    "prefix": "DisconnectAll",
+    "body": ["DisconnectAll()"],
+    "description": "Remove all connections"
   },
   //#endregion
 
@@ -464,6 +529,33 @@
     "body": ["Toggle(${1:code})"],
     "description": "Lock or unlock depending on if the door is locked"
   },
+
+  "Log": {
+    "prefix": "Log",
+    "body": ["Log()"],
+    "description": "'Log' (No other text ingame)"
+  },
+  //#endregion
+
+  //#region Teleporters
+  "Position": {
+    "prefix": "Position",
+    "body": ["Position()"],
+    "description": "Get the coordinates of your current position"
+  },
+  "Teleport": {
+    "prefix": "Teleport",
+    "body": ["Teleport(${1:x}, ${2:y})"],
+    "description": "Teleport to another position in the same room. Returns an error (can't read please report in issue on github what it says if you can)"
+  },
+  "SetWorldPosition": {
+    "prefix": "SetWorldPosition",
+    "body": ["SetWorldPosition(${1:room}, ${2:x}, ${3:y})"],
+    "description": "Teleport to another position anywhere in the world, returns stat(can't read please report in issue on github what it says if you can)"
+  },
+  //#endregion
+
+  //#region Radios
   "Blip": {
     "prefix": "Blip",
     "body": ["Blip()"],
@@ -488,29 +580,6 @@
     "prefix": "TurnOnSound",
     "body": ["TurnOnSound()"],
     "description": "Exactly what it says on the tin"
-  },
-  "Log": {
-    "prefix": "Log",
-    "body": ["Log()"],
-    "description": "'Log' (No other text ingame)"
-  },
-  //#endregion
-
-  //#region Teleporters
-  "Position": {
-    "prefix": "Position",
-    "body": ["Position()"],
-    "description": "Get the coordinates of your current position"
-  },
-  "Teleport": {
-    "prefix": "Teleport",
-    "body": ["Teleport(${1:x}, ${2:y})"],
-    "description": "Teleport to another position in the same room. Returns an error (can't read please report in issue on github what it says if you can)"
-  },
-  "SetWorldPosition": {
-    "prefix": "SetWorldPosition",
-    "body": ["SetWorldPosition(${1:room}, ${2:x}, ${3:y})"],
-    "description": "Teleport to another position anywhere in the world, returns stat(can't read please report in issue on github what it says if you can)"
   },
   //#endregion
 
@@ -660,6 +729,11 @@
     "prefix": "loop",
     "body": ["loop ${1} in ${2}", "  ${0}", "end"],
 
+    "description": "Custom snippet for a loop"
+  },
+  "from": {
+    "prefix": ["loop from"],
+    "body": ["loop ${1:i} from ${2:6} to ${3:max}", "  ${0}", "end"],
     "description": "Custom snippet for a loop"
   }
 

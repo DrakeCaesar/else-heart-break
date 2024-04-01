@@ -131,7 +131,8 @@ if (name == "Sebastian")
 else
   Goto("YvonneToilet_DoorToBar")
 end
-
-loop a  in b 
-  s  
+loop i from 6 to max
+  
 end
+
+getnam
