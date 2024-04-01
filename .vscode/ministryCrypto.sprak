@@ -1,0 +1,50 @@
+ClearText()
+
+Print("MINISTRY CRYPTO")
+
+string s = Input("Enter key: ")
+number k = CharToInt(s[0])
+
+Print("Enter message:")
+string message = Input("")
+
+string encrypted = ""
+
+loop c in message
+  if c == " "
+    encrypted += " "
+  else
+    # var sum = Mod(k + CharToInt(c), 25)
+    Print("sum for " + c + " = " + sum)
+    
+    var c2 = IntToChar(sum)
+    encrypted += c2
+  end
+end
+
+Print("Encrypted:")
+Print("------------")
+Print(encrypted)
+Print("------------")
+
+string decrypted = ""
+
+loop c in encrypted
+  if c == " "
+    decrypted += " "
+  else
+    var diff = CharToInt(c) - k
+    
+    if diff < 0
+      diff += 25
+    end
+    
+    var originalChar = IntToChar(Mod(diff, 25))
+    decrypted += originalChar
+  end
+end
+
+Print("Decrypted:")
+Print("------------")
+Print(decrypted)
+Print("------------")

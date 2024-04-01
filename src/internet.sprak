@@ -24,3 +24,7 @@ loop i from -255 to 255
 end
 
 SetWorldPosition("Internet", -190, 3)
+
+ClearText()
+var mf = Connect("MainFrame")
+mf.SetPosition("Heart", "Sebastian")

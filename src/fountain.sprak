@@ -1,8 +1,26 @@
-TurnOn()
+TurnOff()
+Sleep(1)
 loop
+  Say("Red")
   SetColor(1,0,0)
+  TurnOn()
   Sleep(1)
+  TurnOff()
+  Sleep(1)
+  
+  Say("Green")
   SetColor(0,1,0)
+  TurnOn()
   Sleep(1)
+  TurnOff()
+  Sleep(1)
+  
+  Say("Blue")
   SetColor(0,0,1)
+  TurnOn()
+  Sleep(1)
+  TurnOff()
+  Sleep(1)
 end
+
+#Hotel_Diner_Fountaind

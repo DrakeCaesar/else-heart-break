@@ -651,6 +651,16 @@
     "prefix": ["mf.GetPosition"],
     "body": ["mf.GetPosition(${1:name})"]
   },
+  "SetPosition": {
+    "prefix": ["mf.SetPosition"],
+    "body": ["mf.SetPosition(${1:name}, ${2:targetThing})"],
+    "description": "Move first object to location of second object"
+  },
+  "InteractWith": {
+    "prefix": ["mf.InteractWith"],
+    "body": ["mf.InteractWith(${1:name, ${2:target})"],
+    "description": "Interact with an object"
+  },
   //#endregion
 
   //#region PowerTap
@@ -712,14 +722,35 @@
   },
   //#endregion
 
+  //#region Heart
+
+  "SetNumericalData": {
+    "prefix": "heart.SetNumericalData",
+    "body": [
+      "heart.SetNumericalData(${1:objectName}, ${2:dataName, ${3:value})"
+    ],
+    "description": "Set numeric data on object"
+  },
+  "GetNumericalData": {
+    "prefix": "heart.GetNumericalData",
+    "body": ["heart.GetNumericalData(${1:objectName}, ${2:dataName})"],
+    "description": "Get numeric data on object"
+  },
+  "ZapPersonGently": {
+    "prefix": "heart.ZapPersonGently",
+    "body": ["heart.ZapPersonGently(${1:name})"]
+  },
+  //#endregion
+
   //#region blocks
   "Init": {
     "prefix": "init",
     "body": [
-      "number mf = Connect(Mainframe)",
-      "number pt = Connect(PowerTap)",
-      "number ms = Connect(MeteorologicalServer)",
-      "number rc = Connect(Recorder)",
+      "number heart = Connect(\"Heart\")",
+      "number mf = Connect(\"Mainframe\")",
+      "number pt = Connect(\"PowerTap\")",
+      "number ms = Connect(\"MeteorologicalServer\")",
+      "number rc = Connect(\"Recorder\")",
       "",
       "${0}"
     ],
