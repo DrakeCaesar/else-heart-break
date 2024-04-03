@@ -69,18 +69,11 @@ var offsetY = 0
 Print(Position())
 # Teleport(coords[0] + offsetX, coords[0] + offsetY)
 # Teleport(17,17)
-
-#SetWorldPosition("DeletMeLater", 0, 0)
-#SetWorldPosition("InsideLocker", 0, 0)
-#SetWorldPosition("Factory_Corridor2", 0, 0)
-
-
-# SetWorldPosition("BarYvonne", 13, 32)
-# SetWorldPosition("Internet", -190,3)
-# SetWorldPosition("NorthHarborOtherStorage", 0, 0)
 # SetWorldPosition("ArcadeHall", 0, 20)
-# SetWorldPosition("Foley", 0, 0)
-# SetWorldPosition("HouseBuilder", 0, 0)
-SetWorldPosition("RatvadersDream", 0, 0)
+# SetWorldPosition("Internet", -394, -50)
+# SetWorldPosition("ShoeStore", 22, 20)
+SetWorldPosition("Lodge_Underwater", 14, 51)
+
+# SetWorldPosition("BarYvonne", 22, 36)
 
 

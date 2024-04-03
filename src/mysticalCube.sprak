@@ -1,0 +1,44 @@
+
+var blueToGreen = true
+var greenToRed = false
+var redToBlue = false
+var timer = 0.0
+
+void CycleColors()
+  
+  if (blueToGreen == true and greenToRed == false and redToBlue == false)
+    SetColor(0, 0, 1)
+    SetColor(0, timer, 1 - timer)
+    if timer >= 1.0
+      timer = 0.0
+      blueToGreen = false
+      greenToRed = true
+    end
+  end
+  
+  if (greenToRed == true and blueToGreen == false and redToBlue == false)
+    SetColor(0, 1, 0)
+    SetColor(timer, 1 - timer, 0)
+    if timer >= 1.0
+      timer = 0.0
+      greenToRed = false
+      redToBlue = true
+    end
+  end
+  
+  if (redToBlue == true and greenToRed == false and blueToGreen == false)
+    SetColor(1, 0, 0)
+    SetColor(1 - timer, 0, timer)
+    if timer >= 1.0
+      timer = 0.0
+      redToBlue = false
+      blueToGreen = true
+    end
+  end
+  timer = timer + 0.01
+  Sleep(0.01)
+end
+
+loop
+  CycleColors()
+end

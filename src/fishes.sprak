@@ -1,0 +1,74 @@
+PlaySound("FiveBlips")
+var playerFish = StartNewGame()
+
+# Each time your fish moves, the enemy fish gets to move too
+# Add instructions below:
+
+
+
+Wait()
+Wait()
+Forward()
+Left()
+Forward()
+Right()
+Wait()
+Forward()
+Left()
+Forward()
+Forward()
+Right()
+Forward()
+Forward()
+Forward()
+Wait()
+Forward()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
+# Helper functions
+#
+
+void StartNewGame()
+  var id = Connect("PlayerFish")
+  RemoteFunctionCall(id, "Restart", [])
+  Sleep(2)
+  return id
+end
+
+void Forward()
+  RemoteFunctionCall(playerFish, "PerformMove", ["Forward"])
+end
+
+void Left()
+  RemoteFunctionCall(playerFish, "PerformMove", ["Left"])
+end
+
+void Right()
+  RemoteFunctionCall(playerFish, "PerformMove", ["Right"])
+end
+
+void Wait()
+  RemoteFunctionCall(playerFish, "PerformMove", ["Wait"])
+end

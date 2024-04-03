@@ -1,5 +1,5 @@
 var mf = Connect("MainFrame")
-var substr = Connect("Ministry_ChamberOfNumbers_LargeRecorder_LargeRecorder_4")
+var substr = Connect("Lodge_Room2_LargeRecorder_LargeRecorder_1")
 var rooms = mf.GetAllRooms()
 var users = mf.GetPeople()
 

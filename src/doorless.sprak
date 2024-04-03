@@ -2,7 +2,7 @@ number heart = Connect("Heart")
 number mf = Connect("MainFrame")
 number pt = Connect("PowerTap")
 number ms = Connect("MeteorologyServer")
-number rc = Connect("Ministry_ChamberOfNumbers_LargeRecorder_LargeRecorder_4")
+number rc = Connect("Lodge_Room2_LargeRecorder_LargeRecorder_1")
 
 ClearText()
 

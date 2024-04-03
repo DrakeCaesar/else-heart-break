@@ -671,7 +671,7 @@
   "GetThingsOfType": {
     "prefix": ["mf.GetThingsOfType"],
     "body": [
-      "mf.GetThingsOfType(${1|\"bed\",\"creditcard\",\"door\",\"drink\",\"extractor\",\"fence\",\"floppy\",\"fountain\",\"fryingpan\",\"fusebox\",\"goods\",\"key\",\"lamp\",\"locker\",\"machine\",\"map\",\"memory\",\"modifier\",\"musicbox\",\"mysticalcube\",\"pawn\",\"point\",\"portal\",\"radio\",\"screwdriver\",\"seat\",\"sendpipe\",\"sink\",\"snus\",\"suitcase\",\"taser\",\"teleporter\",\"tram\",\"trashcan\",\"tv\",\"vendingmachine\"|})"
+      "mf.GetThingsOfType(\"${1|bed,creditcard,door,drink,extractor,fence,floppy,fountain,fryingpan,fusebox,goods,key,lamp,locker,machine,map,memory,modifier,musicbox,mysticalcube,pawn,point,portal,radio,screwdriver,seat,sendpipe,sink,snus,suitcase,taser,teleporter,tram,trashcan,tv,vendingmachine|}\")"
     ]
   },
   "GetThingsInRoom": {
@@ -801,7 +801,7 @@
       "number mf = Connect(\"MainFrame\")",
       "number pt = Connect(\"PowerTap\")",
       "number ms = Connect(\"MeteorologyServer\")",
-      "number rc = Connect(\"Ministry_ChamberOfNumbers_LargeRecorder_LargeRecorder_4\")",
+      "number rc = Connect(\"Lodge_Room2_LargeRecorder_LargeRecorder_1\")",
       "",
       "${0}"
     ],
