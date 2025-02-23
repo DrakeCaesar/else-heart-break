@@ -1,0 +1,46 @@
+array GetCoordinates()
+  var coords = Position()
+  var length = Count(coords)
+  var xpos = ""
+  var ypos = ""
+  
+  var x = ""
+  var i = 0
+  var copyX = false
+  var break = false
+  var copyY = false
+  loop
+    if (coords[i] == ":")
+      copyX = true
+      continue
+    end
+    
+    if (copyX && break == false && coords[i] != "," && coords[i] != " " && coords[i] != "x" && coords[i] != "y" && coords[i] != ":")
+      x += coords[i]
+    end
+    
+    if (coords[i] == "," && break == false)
+      copyX = false
+      break = true
+      continue
+    end
+    
+    if (coords[i] == ":" && break)
+      copyY = true
+      continue
+    end
+    
+    if (copyY && coords[i] != "," && coords[i] != " " && coords[i] != "x" && coords[i] != "y" && coords[i] != ":")
+      y += coords[i]
+    end
+  end
+  
+  i = i + 5
+  var y = ""
+  var count = Count(coords) - 1
+  loop j from i to count
+    y += pos[j]
+  end
+  Print(coords + " " + ParseInt(x) + " " + ParseInt(y))
+  return [ParseInt(x), ParseInt(y)]
+end

@@ -1,0 +1,18 @@
+
+void OnHack(string name)
+  Sleep(1000)
+end
+
+void OnIntruder(string name)
+  Sleep(1000)
+end
+
+#############################
+
+
+if GetUser() == "CasinoGuard1" or GetUser() == "CasinoGuard2"
+    # let through
+else
+    Say("Access denied")
+    Grill()
+end

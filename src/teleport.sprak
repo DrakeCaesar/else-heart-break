@@ -1,7 +1,25 @@
 
-# SetWorldPosition("PixiesApartment", 24, 21)
+
 var pos = Position()
-# Print(pos)
+var offsetX = -5
+var offsetY = 5
+var coords = GetCoordinates()
+Print(coords)
+Teleport(coords[0] + offsetX, coords[1] + offsetY)
+
+# Print(coords)
+# Teleport(coords[0] + offsetX, coords[0] + offsetY)
+# Teleport(17,17)
+# SetWorldPosition("ArcadeHall", 0, 20)
+# SetWorldPosition("Internet", -394, -50)
+# SetWorldPosition("ShoeStore", 22, 20)
+# SetWorldPosition("PixiesApartment", 24, 21)
+SetWorldPosition("Lodge_Underwater", 14, 51)
+# SetWorldPosition("BarYvonne", 22, 36)
+
+# SetWorldPosition("BarYvonne", 22, 36)
+
+SetWorldPosition("LongsonApartment", 14, 51)
 
 number ParseInt(string str)
   var i = 0
@@ -78,21 +96,5 @@ end
 
 
 
-var offsetX = -5
-var offsetY = 5
-
-var coords = GetCoordinates()
-Print(coords)
-Teleport(coords[0] + offsetX, coords[1] + offsetY)
-
-# Print(coords)
-# Teleport(coords[0] + offsetX, coords[0] + offsetY)
-# Teleport(17,17)
-# SetWorldPosition("ArcadeHall", 0, 20)
-# SetWorldPosition("Internet", -394, -50)
-# SetWorldPosition("ShoeStore", 22, 20)
-
-# SetWorldPosition("Lodge_Underwater", 14, 51)
-# SetWorldPosition("BarYvonne", 22, 36)
 
 

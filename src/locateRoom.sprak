@@ -1,0 +1,25 @@
+number heart = Connect("Heart")
+number mf = Connect("MainFrame")
+number pt = Connect("PowerTap")
+number ms = Connect("MeteorologyServer")
+number rc = Connect("Lodge_Room2_LargeRecorder_LargeRecorder_1")
+
+ClearText()
+
+var substring = "Longson"
+
+var doors = mf.GetThingsOfType("door")
+var targetRooms = []
+loop door in doors
+  if (rc.StringContains(door, substring))
+    var room = mf.GetPosition(door)
+    Append(targetRooms, room)
+  end
+end
+
+loop room in targetRooms
+  Print(room)
+end
+
+Print("")
+Print("Done")

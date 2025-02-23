@@ -1,0 +1,20 @@
+
+
+var name = GetUser()
+if (name == "Sebastian")
+  var sink = Connect("FelixApartment_Poor_WaterTap_Poor_WaterTap_1")
+  var computer = Connect("FelixHomeComputer")
+  var status = 0
+  loop
+    # status = status + 1
+    # if (status > 1)
+    #   Say("Drinking")
+    #   status = 0
+    # end
+    sink.SetLiquidAmount(99999)
+    QuickBoost()
+    FastForward()
+  end
+end
+
+

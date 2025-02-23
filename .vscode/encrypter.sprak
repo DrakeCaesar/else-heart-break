@@ -1,0 +1,37 @@
+number heart = Connect("Heart")
+number mf = Connect("Mainframe")
+number pt = Connect("PowerTap")
+number ms = Connect("MeteorologicalServer")
+number rc = Connect("Lodge_Room2_LargeRecorder_LargeRecorder_1")
+
+ClearText()
+
+var bigString = ""
+var count = 0
+
+string message = "Test message"
+
+
+loop k from 0 to 1000
+  string encrypted = ""
+  loop c in message
+    if c == " "
+      encrypted += " "
+    else
+      var sum = Mod(k + CharToInt(c), 26)
+      #Print("sum for " + c + " = " + sum)
+      
+      var c2 = IntToChar(sum)
+      encrypted += c2
+    end
+  end
+  
+  Print(encrypted)
+  count++
+  if (rc.StringContains(bigString, encrypted))
+    Print(count)
+    break
+  end
+  bigString += encrypted
+end
+

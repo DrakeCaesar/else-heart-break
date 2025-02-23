@@ -1,0 +1,47 @@
+number heart = Connect("Heart")
+number mf = Connect("Mainframe")
+number pt = Connect("PowerTap")
+number ms = Connect("MeteorologicalServer")
+number rc = Connect("Lodge_Room2_LargeRecorder_LargeRecorder_1")
+
+ClearText()
+
+var k = 27
+string message = "Test message"
+
+
+string encrypted = ""
+loop c in message
+  if c == " "
+    encrypted += " "
+  else
+    var sum = Mod(k + CharToInt(c), 25)
+    #Print("sum for " + c + " = " + sum)
+    
+    var c2 = IntToChar(sum)
+    encrypted += c2
+  end
+end
+
+Print(encrypted)
+
+string decrypted = ""
+
+loop c in encrypted
+  if c == " "
+    decrypted += " "
+  else
+    var diff = CharToInt(c) - k
+    
+    if diff < 0
+      diff += 25
+    end
+    
+    var originalChar = IntToChar(Mod(diff, 25))
+    decrypted += originalChar
+  end
+end
+
+Print(decrypted)
+
+

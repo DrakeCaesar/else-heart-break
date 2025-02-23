@@ -1,0 +1,21 @@
+number heart = Connect("Heart")
+number mf = Connect("MainFrame")
+number pt = Connect("PowerTap")
+number ms = Connect("MeteorologyServer")
+number rc = Connect("Lodge_Room2_LargeRecorder_LargeRecorder_1")
+
+var target = "Longson"
+
+loop
+  ClearText()
+  var entity = mf.GetPosition(target)
+  Print(target + " is at " + entity)
+  
+  var hour = GetHour()
+  var minute = GetMinute()
+  Print("The time is " + hour + ":" + minute)
+  
+  Sleep(1)
+end
+
+var pos = mf.GetRoom("Sebastian")

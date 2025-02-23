@@ -4,23 +4,10 @@ var pt = Connect("PowerTap")
 var ms = Connect("MeteorologyServer")
 var rc = Connect("Ministry_ChamberOfNumbers_LargeRecorder_LargeRecorder_7")
 
-array dataList = ["charisma","smelliness","sleepiness","drunkenness","corruption"]
+# array dataList = ["charisma","smelliness","sleepiness","drunkenness","corruption"]
+array dataList = ["trippiness"]
+
 var name = "Sebastian"
-
-# var doors = mf.GetThingsOfType("door")
-# loop
-#   heart.SetNumericData(name, "charisma", 1000000)
-#   heart.SetNumericData(name, "smelliness", 0)
-#   heart.SetNumericData(name, "sleepiness", 0)
-#   heart.SetNumericData(name, "drunkenness",0)
-#   heart.SetNumericData(name, "corruption", 0)
-#   loop door in doors
-#     Unlock(door)
-#   end
-#   Sleep(1)
-# end
-
-# Print ("Data for " + name + ":")
 
 ClearText()
 
@@ -29,6 +16,6 @@ loop data in dataList
   Print(data + ": " + result)
 end
 
-var entity = mf.GetPosition("Pixie")
-Print("Pixie is at " + entity)
-
+heart.SetNumericData("CityHallGuard", "sleepiness", 10000)
+heart.ZapPersonGently("CityHallGuard")
+mf.SetPosition("CityHallGuard", "Ministry_ChamberOfNumbers_LargeRecorder_LargeRecorder_7")

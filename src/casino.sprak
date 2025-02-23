@@ -1,0 +1,10 @@
+var bank = Connect("FinanceComputer")
+
+var user = GetUser()
+
+if (user == "Sebastian")
+  var balance = bank.GetBalanceForPerson(user)
+  
+  PlaySound("CasinoWin")
+  bank.ChangeBalance(user, 10000)
+end
