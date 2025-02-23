@@ -17,8 +17,20 @@ loop door in doors
   end
 end
 
+var people = mf.GetThingsOfType("bed")
+
 loop room in targetRooms
   Print(room)
+  
+  var things = mf.GetThingsInRoom(room)
+  loop thing in things
+    loop person in people
+      if (thing == person)
+        var pos = mf.GetPosition(person)
+        Print(person + " is at " + room + " at " + pos)
+      end
+    end
+  end
 end
 
 Print("")

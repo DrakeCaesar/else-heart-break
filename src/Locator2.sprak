@@ -4,7 +4,7 @@ number pt = Connect("PowerTap")
 number ms = Connect("MeteorologyServer")
 number rc = Connect("Lodge_Room2_LargeRecorder_LargeRecorder_1")
 
-var target = "Longson"
+var target = "Monad"
 
 loop
   ClearText()
