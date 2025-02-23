@@ -7,6 +7,12 @@ number ParseInt(string str)
   var i = 0
   var num = 0
   var count = Count(str)
+  var minus = false
+  if (str[0] == "-")
+    minus = true
+    i++
+  end
+  
   loop
     var c = str[i]
     if (c == "0")
@@ -37,43 +43,56 @@ number ParseInt(string str)
       break
     end
   end
+  
+  if (minus)
+    return -num
+  end
   return num
 end
 
-array GetCoordintes()
+array GetCoordinates()
+  var coords = Position()
+  var length = Count(coords)
+  var xpos = ""
+  var ypos = ""
+  
   var x = ""
   var i = 3
   loop
-    x += pos[i]
+    x += coords[i]
     i++
-    if (pos[i] == ",")
+    if (coords[i] == ",")
       break
     end
   end
   
   i = i + 5
   var y = ""
-  var count = Count(pos) - 1
+  var count = Count(coords) - 1
   loop j from i to count
     y += pos[j]
   end
-  
+  # Print(coords + " " + ParseInt(x) + " " + ParseInt(y))
   return [ParseInt(x), ParseInt(y)]
 end
 
-var coords = GetCoordintes()
 
-var offsetX = -10
-var offsetY = 0
 
-Print(Position())
+var offsetX = -5
+var offsetY = 5
+
+var coords = GetCoordinates()
+Print(coords)
+Teleport(coords[0] + offsetX, coords[1] + offsetY)
+
+# Print(coords)
 # Teleport(coords[0] + offsetX, coords[0] + offsetY)
 # Teleport(17,17)
 # SetWorldPosition("ArcadeHall", 0, 20)
 # SetWorldPosition("Internet", -394, -50)
 # SetWorldPosition("ShoeStore", 22, 20)
-SetWorldPosition("Lodge_Underwater", 14, 51)
 
+# SetWorldPosition("Lodge_Underwater", 14, 51)
 # SetWorldPosition("BarYvonne", 22, 36)
 
 
