@@ -12,17 +12,22 @@ Teleport(coords[0] + offsetX, coords[1] + offsetY)
 # Teleport(17,17)
 # SetWorldPosition("ArcadeHall", 0, 20)
 # SetWorldPosition("Internet", -394, -50)
-# SetWorldPosition("ShoeStore", 22, 20)
+# SetWorldPosition("ShoeStore", 22, 20)d
 # SetWorldPosition("PixiesApartment", 24, 21)
 # SetWorldPosition("Lodge_Underwater", 14, 51)
 # SetWorldPosition("LongsonApartment", 4, -12)
 
 # SetWorldPosition("BarYvonne", 22, 36)
-
-
+# SetWorldPosition("Ministry_MonadsOffice", 15, 7)
+# SetWorldPosition("MonadsApartment", 27, 85)
 # SetWorldPosition("Internet", -387, -40)
 
-# SetWorldPosition("Plaza", 0, 0)
+# SetWorldPosition("Plaza", 10, 10)
+# SetWorldPosition("HarborWest", -54, 81)
+# SetWorldPosition("Internet", -32, -438)
+
+# SetWorldPosition("Lodge_Underwater", 14, 51)
+SetWorldPosition("BarYvonne", 22, 36)
 
 number ParseInt(string str)
   var i = 0

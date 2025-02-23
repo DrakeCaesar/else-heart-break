@@ -4,18 +4,49 @@ number pt = Connect("PowerTap")
 number ms = Connect("MeteorologyServer")
 number rc = Connect("Lodge_Room2_LargeRecorder_LargeRecorder_1")
 
-var target = "Monad"
+array targets = ["Pixie", "Ivan", "Monad", "Yulian", "Frank", "Felix"]
 
-loop
-  ClearText()
-  var entity = mf.GetPosition(target)
-  Print(target + " is at " + entity)
-  
-  var hour = GetHour()
-  var minute = GetMinute()
-  Print("The time is " + hour + ":" + minute)
-  
-  Sleep(1)
+string PadToLength(string text, number length)
+  var padded = text
+  loop
+    if (Count(padded) >= length)
+      break
+    end
+    padded += " "
+  end
+  return padded
 end
 
-var pos = mf.GetRoom("Sebastian")
+ClearText()
+
+var output = ""
+
+loop target in targets
+  var entity = mf.GetPosition(target)
+  var line = target + " is at " + entity
+  
+  var paddedLine = ""
+  if (Count(line) > 31)
+    paddedLine = PadToLength(line, 62)
+  else
+    paddedLine = PadToLength(line, 31)
+  end
+  
+  output += paddedLine
+end
+
+var hour = GetHour()
+var minute = GetMinute()
+var timeLine = "The time is " + hour + ":" + minute
+
+var paddedTime = ""
+if (Count(timeLine) > 31)
+  paddedTime = PadToLength(timeLine, 62)
+else
+  paddedTime = PadToLength(timeLine, 31)
+end
+
+output += paddedTime
+
+Print(output)
+

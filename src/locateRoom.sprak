@@ -6,7 +6,7 @@ number rc = Connect("Lodge_Room2_LargeRecorder_LargeRecorder_1")
 
 ClearText()
 
-var substring = "Longson"
+var substring = "Monad"
 
 var doors = mf.GetThingsOfType("door")
 var targetRooms = []
