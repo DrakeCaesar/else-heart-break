@@ -9,16 +9,19 @@ var name = "Sebastian"
 
 var doors = mf.GetThingsOfType("door")
 
-Say("1337")
+loop door in doors
+  Unlock(door)
+end
+
+Say("All doors unlocked")
+
 loop
-  heart.SetNumericData(name, "charisma", 1000000)
+  heart.SetNumericData(name, "charisma", 100)
   heart.SetNumericData(name, "smelliness", 0)
   heart.SetNumericData(name, "sleepiness", 0)
   heart.SetNumericData(name, "drunkenness",0)
   heart.SetNumericData(name, "corruption", 0)
-  loop door in doors
-    Unlock(door)
-  end
+  
   Sleep(1)
 end
 
