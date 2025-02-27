@@ -1,0 +1,153 @@
+DisconnectAll()
+var radio = Connect("SodaStorage_Radio_1")
+radio.TurnOffSound()
+number channel = radio.GetChannel()
+
+if channel == 1
+  channel = 5
+else if channel == 2
+  channel = 5
+else if channel == 3
+  channel = 5
+else if channel == 4
+  channel = 5
+end
+radio.SetChannel(channel)
+
+if channel == 5
+  channel++
+  radio.SetChannel(channel)
+  channel = 0
+  Cast("ClubDotMorningBegins")
+  Interact(GetUser(), "Hotel_Room4_Testing_Poor_Bed_Poor_Bed_7_1")
+  Fast()
+else if channel == 6
+  channel++
+  radio.SetChannel(channel)
+  channel = 0
+  Sleepy()
+  Interact(GetUser(), "Hotel_Room4_Testing_Poor_Bed_Poor_Bed_7_1")
+  Fast()
+else if channel == 7
+  channel++
+  radio.SetChannel(channel)
+  channel = 0
+  Cast("SebastianDrunkAtClubDot")
+else if channel == 8
+  channel++
+  radio.SetChannel(channel)
+  channel = 0
+  Cast("ShouldTryFindLodge")
+  Cast("FelixCallsYulian")
+  Cast("CompletedHackerTrial1")
+  Teleport(GetUser(), "Lodge_Room2_Point")
+  Fast()
+else if channel == 9
+  channel++
+  radio.SetChannel(channel)
+  channel = 0
+  Cast("CompletedHackerTrial2")
+  Cast("CompletedHackerTrial3")
+  Cast("FactoryMissionInitiated")
+  Teleport(GetUser(), "Hotel_Room1_Point")
+  Sleepy()
+  Interact(GetUser(), "Hotel_Room1_Bed")
+  Fast()
+else if channel == 10
+  channel++
+  radio.SetChannel(channel)
+  channel = 0
+  Sleepy()
+  Interact(GetUser(), "Hotel_Room1_Bed")
+  Fast()
+else if channel == 11
+  channel++
+  radio.SetChannel(channel)
+  channel = 0
+  Cast("TalkedToPixieAboutHowFactoryMissionWent")
+  Sleepy()
+  Interact(GetUser(), "Hotel_Room1_Bed")
+  Fast()
+else if channel == 12
+  channel++
+  radio.SetChannel(channel)
+  channel = 0
+  Sleepy()
+  Interact(GetUser(), "Hotel_Room1_Bed")
+  Fast()
+else if channel == 13
+  channel++
+  radio.SetChannel(channel)
+  channel = 0
+  Cast("LetsNotDoTheHeist")
+  Cast("HasTalkedToPixie")
+  Sleepy()
+  Interact(GetUser(), "Hotel_Room1_Bed")
+  Fast()
+else if channel == 14
+  channel++
+  radio.SetChannel(channel)
+  channel = 0
+  Sleepy()
+  Interact(GetUser(), "Hotel_Room1_Bed")
+  Fast()
+else if channel == 15
+  channel++
+  radio.SetChannel(channel)
+  channel = 0
+  Sleepy()
+  Interact(GetUser(), "Hotel_Room1_Bed")
+  Fast()
+else if channel == 16
+  channel++
+  radio.SetChannel(channel)
+  channel = 0
+  Teleport("Petra", "Bower")
+  Teleport("Pixie", "Ivan")
+  Teleport(GetUser(), "Ministry_ExperimentHall_SofaSeat_1")
+  Interact(GetUser(), "Ministry_ExperimentHall_SofaSeat_1")
+  Fast()
+else if channel == 17
+  channel++
+  radio.SetChannel(channel)
+  channel = 0
+  Fast()
+else if channel == 18
+  Cast("HasMetIvanAsGhost")
+  Cast("IvanIsFree")
+  Cast("Sebastian_open_HarborEast_DoorToFerry")
+end
+
+void Cast(string name)
+  var caster = Connect("PoliceOfficeInterior_LargeRecorder_LargeRecorder_1")
+  caster.Broadcast(name)
+end
+
+void Sleepy()
+  var heart = Connect("Heart")
+  heart.SetNumericData(GetUser(), "sleepiness", 90)
+end
+
+void Interact(string name, string target)
+  var interactor = Connect("LongsonPlaystation")
+  interactor.InteractWith(name, target)
+end
+
+void Wait(number sec)
+  var interactor = Connect("LongsonPlaystation")
+  interactor.Sleep(sec)
+end
+
+void Teleport(string name, string target)
+  string recorder = "PoliceOfficeInterior_LargeRecorder_LargeRecorder_1"
+  var interactor = Connect("LongsonPlaystation")
+  interactor.SetPosition(recorder, name)
+  var teleport = Connect(recorder)
+  teleport.MovePerson(name, target)
+end
+
+void Fast()
+  loop
+    Cast("Sebastian_TookFastForwardDrug")
+  end
+end
