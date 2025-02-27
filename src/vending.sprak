@@ -1,0 +1,27 @@
+number heart = Connect("Heart")
+number mf = Connect("MainFrame")
+number pt = Connect("PowerTap")
+number ms = Connect("MeteorologyServer")
+number rc = Connect("Lodge_Room2_LargeRecorder_LargeRecorder_1")
+number st = Connect("PixiesApartment_ModuledStove_Poor_ModuledStove_1")
+number sk = Connect("PixiesApartment_Poor_WaterTap_Poor_WaterTap_1")
+
+ClearText()
+
+var types = ["bed", "button", "character", "cigarette", "computer", "creditcard", "door", "drink", "drug", "extractor", "fence", "floppy", "fountain", "fryingpan", "fusebox", "goods", "key", "lamp", "locker", "machine", "map", "memory", "modifier", "musicbox", "mysticalcube", "navnode", "pawn", "point", "portal", "radio", "screwdriver", "seat", "sendpipe", "sink", "snus", "stove", "suitcase", "taser", "telephone", "teleporter", "tram", "trashcan", "tv", "vendingmachine"]
+
+var vendingMachines = mf.GetThingsOfType("vendingmachine")
+Print(Count(vendingMachines))
+loop machine in vendingMachines
+  var room = mf.GetPosition(machine)
+  Print(room)
+  var things = mf.GetThingsInRoom(room)
+  loop thing in things
+    if (rc.StringContains(thing, "vending"))
+      var pos = mf.GetPosition(thing)
+      Print(thing + " is at " + room + " at " + pos)
+    else
+      Print(thing + " is at " + pos)
+    end
+  end
+end

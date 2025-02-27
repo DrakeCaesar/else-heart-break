@@ -1,0 +1,29 @@
+var heart = Connect("Heart")
+var mf = Connect("MainFrame")
+var pt = Connect("PowerTap")
+var ms = Connect("MeteorologyServer")
+var rc = Connect("Ministry_ChamberOfNumbers_LargeRecorder_LargeRecorder_7")
+
+array dataList = ["charisma","smelliness","sleepiness","drunkenness","corruption","trippiness"]
+
+# var names = ["Sebastian", "Ivan"]
+# var names = [ "Ivan"]
+var names = ["Sebastian"]
+
+
+loop
+  ClearText()
+  
+  loop name in names
+    
+    loop data in dataList
+      var result = heart.GetNumericData(name, data)
+      Print(data + ": " + result)
+      heart.SetNumericData(name, data, 0)
+    end
+  end
+  
+end
+# heart.SetNumericData("CityHallGuard", "sleepiness", 10000)
+# heart.ZapPersonGently("CityHallGuard")
+# mf.SetPosition("CityHallGuard", "Ministry_ChamberOfNumbers_LargeRecorder_LargeRecorder_7")
