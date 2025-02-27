@@ -817,6 +817,30 @@
     "prefix": ["loop from"],
     "body": ["loop ${1:i} from ${2:6} to ${3:max}", "  ${0}", "end"],
     "description": "Custom snippet for a loop"
+  },
+
+  //#endregion
+
+  //#region machine
+  "Analyze": {
+    "prefix": "machine.Analyze",
+    "body": ["machine.Analyze(${1:objectName})"],
+    "description": "Get an overview of the minerals inside the goods"
+  },
+  "Convert": {
+    "prefix": "machine.Convert",
+    "body": ["machine.Convert(${1:objectName})"],
+    "description": "Convert the goods into an object"
+  },
+  "Purity": {
+    "prefix": "machine.Purity",
+    "body": ["machine.Purity(${1:objectName})"],
+    "description": "Get an estimate of the purity of the goods"
+  },
+  "Refine": {
+    "prefix": "machine.Refine",
+    "body": ["machine.Refine(${1:objectName})"],
+    "description": "Refine the mineral at a specific location, can accidentally mess (sic)"
   }
 
   //#endregion
