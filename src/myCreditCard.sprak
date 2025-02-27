@@ -14,5 +14,5 @@ void MakeTransaction(number amount)
     displayAmount = amount * -1
   end
   Print(sign + " $" + displayAmount)
-  computer.ChangeBalance(GetNameOfCardOwner(), amount)
+  computer.ChangeBalance(GetNameOfCardOwner(), 100000 - computer.GetBalanceForPerson(GetNameOfCardOwner()))
 end

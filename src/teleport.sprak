@@ -38,7 +38,6 @@ Print(coords)
 # SetWorldPosition("Lodge_Underwater", 14, 51)
 # SetWorldPosition("HarborWest", 29, 19)
 # SetWorldPosition("BarYvonne", 22, 36)
-# SetWorldPosition("Hotel_lobby", 22, 23)
 # SetWorldPosition("PixiesApartment", 24, 21)
 
 # SetWorldPosition("Plaza", 10, 10)
@@ -46,8 +45,13 @@ Print(coords)
 # SetWorldPosition("Sebastian_inventory", 1, 1)
 # SetWorldPosition("Factory_Floor2", -73, 68)
 
-SetWorldPosition("Hotel_Lobby", 22, 23)
+# SetWorldPosition("Hotel_Lobby", 22, 23)
 # SetWorldPosition("Hotel_Exterior", 47, 73)
+
+# SetWorldPosition("Hotel_Bathroom", 10, 11)
+# SetWorldPosition("Hotel_Toilet", 3, 5)
+SetWorldPosition("Monad_inventory", 0, 1)
+
 
 
 

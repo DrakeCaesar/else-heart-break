@@ -4,9 +4,9 @@ number pt = Connect("PowerTap")
 number ms = Connect("MeteorologyServer")
 number rc = Connect("Lodge_Room2_LargeRecorder_LargeRecorder_1")
 
-array targets = ["Sebastian","Pixie", "Urban","Ivan", "Monad", "Miman", "Yulian", "Frank", "Felix"]
+# array targets = ["Sebastian","Pixie", "Urban","Ivan", "Monad", "Miman", "Yulian", "Frank", "Felix"]
 
-# array targets = ["Sebastian"]
+array targets = ["Miman"]
 
 
 string PadToLength(string text, number length)

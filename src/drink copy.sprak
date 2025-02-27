@@ -1,6 +1,6 @@
 var name = GetUser()
 if (name == "Sebastian")
-  var sink = Connect("FelixApartment_Poor_WaterTap_Poor_WaterTap_1")
+  var sink = Connect("YvonneToilet_Poor_WaterTap_Poor_WaterTap_1")
   var computer = Connect("FelixHomeComputer")
   var status = 0
   loop
