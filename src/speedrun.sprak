@@ -136,7 +136,7 @@ end
 void Wait(number sec)
   var interactor = Connect("LongsonPlaystation")
   interactor.Sleep(sec)
-end
+endd
 
 void Teleport(string name, string target)
   string recorder = "PoliceOfficeInterior_LargeRecorder_LargeRecorder_1"

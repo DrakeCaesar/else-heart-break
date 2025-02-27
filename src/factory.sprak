@@ -1,0 +1,42 @@
+var machine = Connect("MachineB1")
+
+# PrintInfo(machine)
+# machine.Refine(0)
+# PrintInfo(machine)
+
+PrintInfo(machine)
+var count = 1
+loop i from 0 to 15
+  var s = machine.Analyze()
+  var q = CharToInt(s[i])
+  loop
+    var br = Mod(count, 20)
+    if br == 0
+      ClearText()
+    end
+    count++
+    if q == 0
+      break
+    end
+    machine.Refine(i)
+    PrintInfo(machine)
+    s = machine.Analyze()
+    q = CharToInt(s[i])
+    if q == 0
+      break
+    end
+  end
+end
+
+var purity = machine.Purity() * 100
+if purity == 100
+  # var final = machine.Convert()
+  # Print("Final result: " + final)
+end
+
+void PrintInfo(var machine)
+  var content = machine.Analyze()
+  var purity = machine.Purity() * 100
+  Print(content + " " + purity)
+end
+

@@ -57,19 +57,19 @@ end
 
 ClearText()
 
-var term = "NorthHarbor"
-Print("Searching for: " + term)
-var filteredRooms = findSubstrings(term, rooms)
+# var term = "NorthHarbor"
+# Print("Searching for: " + term)
+# var filteredRooms = findSubstrings(term, rooms)
 
 
-loop room in filteredRooms
-  var type = mf.GetTypeOfThing(room)
-  Print("Type: " + type);
-  Print(room)
-end
-Print("Done printing rooms")
+# loop room in filteredRooms
+#   var type = mf.GetTypeOfThing(room)
+#   Print("Type: " + type);
+#   Print(room)
+# end
+# Print("Done printing rooms")
 
-Print("Printing inventory")
+# Print("Printing inventory")
 
 
 # array inv = mf.GetThingsInRoom(term)
@@ -104,7 +104,7 @@ void Progress(array arr)
   Print("")
 end
 
-# Progress(rooms)
+Progress(rooms)
 
 
 # Info()

@@ -1,0 +1,29 @@
+var heart = Connect("Heart")
+var mf = Connect("MainFrame")
+var pt = Connect("PowerTap")
+var ms = Connect("MeteorologyServer")
+var rc = Connect("Ministry_ChamberOfNumbers_LargeRecorder_LargeRecorder_7")
+var br = Connect("PoliceOfficeInterior_LargeRecorder_LargeRecorder_1")
+
+array dataList = ["charisma","smelliness","sleepiness","drunkenness","corruption"]
+var name = "Sebastian"
+# var hour = GetHour()
+ClearText()
+
+loop
+  # ClearText()
+  # var hour = GetHour()
+  # var minute = GetMinute()
+  # Print("The time is " + hour + ":" + minute)
+  # loop data in dataList
+  #   var result = heart.GetNumericData(name, data)
+  #   Print(data + ": " + result)
+  # end
+  heart.SetNumericData(name, "charisma", 100)
+  heart.SetNumericData(name, "smelliness", 0)
+  heart.SetNumericData(name, "sleepiness", 0)
+  heart.SetNumericData(name, "drunkenness",0)
+  heart.SetNumericData(name, "corruption", 0)
+  # br.Broadcast("Sebastian_TookFastForwardDrug")
+  Sleep(1)
+end

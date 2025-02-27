@@ -2,7 +2,6 @@ EnableAPI("internet")
 EnableAPI("arcade")
 EnableAPI("floppy")
 EnableAPI("memory")
-EnableAPI("door")
 SetMhz(500)
 SetMaxTime(-1)
 

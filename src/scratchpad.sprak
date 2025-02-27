@@ -4,16 +4,26 @@ number pt = Connect("PowerTap")
 number ms = Connect("MeteorologyServer")
 number rc = Connect("Lodge_Room2_LargeRecorder_LargeRecorder_1")
 
-loop
-  ClearText()
-  var entity = mf.GetPosition("Pixie")
-  Print("Pixie is at " + entity)
-  
-  var hour = GetHour()
-  var minute = GetMinute()
-  Print("The time is " + hour + ":" + minute)
-  
-  Sleep(1)
-end
+# loop
+#   ClearText()
+#   var entity = mf.GetPosition("Pixie")
+#   Print("Pixie is at " + entity)
 
-var pos = mf.GetRoom("Sebastian")
+#   var hour = GetHour()
+#   var minute = GetMinute()
+#   Print("The time is " + hour + ":" + minute)
+
+#   Sleep(1)
+# end
+
+# var pos = mf.GetRoom("Sebastian")
+
+ClearText()
+var rooms = mf.GetAllRooms()
+loop room in rooms
+  if (rc.StringContains(room, "inventory"))
+    if (rc.StringContains(room, "Seb"))
+      Print(room)
+    end
+  end
+end
