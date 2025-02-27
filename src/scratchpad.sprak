@@ -22,8 +22,17 @@ ClearText()
 var rooms = mf.GetAllRooms()
 loop room in rooms
   if (rc.StringContains(room, "inventory"))
-    if (rc.StringContains(room, "Seb"))
+    if (rc.StringContains(room, "Monad"))
       Print(room)
+      
+      var things = mf.GetThingsInRoom(room)
+      loop thing in things
+        var position = mf.GetPosition(thing)
+        var line = thing + " is at " + position
+        Print(thing)
+      end
+      
     end
   end
 end
+
