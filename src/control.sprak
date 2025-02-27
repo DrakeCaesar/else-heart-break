@@ -10,7 +10,7 @@ var name = "Sebastian"
 # var hour = GetHour()
 ClearText()
 
-loop
+# loop
   # ClearText()
   # var hour = GetHour()
   # var minute = GetMinute()
@@ -24,6 +24,6 @@ loop
   heart.SetNumericData(name, "sleepiness", 0)
   heart.SetNumericData(name, "drunkenness",0)
   heart.SetNumericData(name, "corruption", 0)
-  # br.Broadcast("Sebastian_TookFastForwardDrug")
-  Sleep(1)
-end
+  br.Broadcast("Sebastian_TookFastForwardDrug")
+  # Sleep(1)
+# end

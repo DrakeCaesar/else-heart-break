@@ -44,9 +44,9 @@ Print(coords)
 # SetWorldPosition("Plaza", 10, 10)
 
 # SetWorldPosition("Sebastian_inventory", 1, 1)
-SetWorldPosition("Factory_Floor2", -73, 68)
+# SetWorldPosition("Factory_Floor2", -73, 68)
 
-# SetWorldPosition("Hotel_Lobby", 22, 23)
+SetWorldPosition("Hotel_Lobby", 22, 23)
 # SetWorldPosition("Hotel_Exterior", 47, 73)
 
 
